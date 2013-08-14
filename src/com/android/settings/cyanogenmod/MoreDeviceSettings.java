@@ -32,7 +32,10 @@ public class MoreDeviceSettings extends SettingsPreferenceFragment {
     private static final String TAG = "MoreDeviceSettings";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8020622... Re-add link to DeviceParts.
     private static final String KEY_DEVICE_PARTS = "advanced_settings";
     private static final String KEY_HEADSET_CONNECT_PLAYER = "headset_connect_player";
 >>>>>>> 8020622... Re-add link to DeviceParts.
@@ -77,6 +80,10 @@ public class MoreDeviceSettings extends SettingsPreferenceFragment {
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        return false;
+>>>>>>> 8020622... Re-add link to DeviceParts.
 =======
         return false;
 >>>>>>> 8020622... Re-add link to DeviceParts.
