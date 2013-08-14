@@ -55,6 +55,8 @@ public class MoreDeviceSettings extends SettingsPreferenceFragment {
             removePreference(KEY_SENORS_MOTORS_CATEGORY);
         }
 
+        final PreferenceGroup calibrationCategory =
+                (PreferenceGroup) findPreference(KEY_DISPLAY_CALIBRATION_CATEGORY);
         if (!DisplayColor.isSupported()) {
             removePreference(KEY_DISPLAY_CALIBRATION_CATEGORY);
         }
