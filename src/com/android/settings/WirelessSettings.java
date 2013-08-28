@@ -110,7 +110,7 @@ public class WirelessSettings extends SettingsPreferenceFragment {
             // Get provisioning URL
             String url = mCm.getMobileProvisioningUrl();
             if (!TextUtils.isEmpty(url)) {
-                Intent intent = new Intent(CONNECTED_TO_PROVISIONING_NETWORK_ACTION);
+                Intent intent = new Intent(MOBILE_PROVISIONING_ACTION);
                 intent.putExtra("EXTRA_URL", url);
                 Context context = getActivity().getBaseContext();
                 context.sendBroadcast(intent);
