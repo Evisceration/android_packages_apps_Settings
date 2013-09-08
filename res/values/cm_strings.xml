@@ -519,14 +519,11 @@
     <string name="hardware_keys_action_search">Search assistant</string>
     <string name="hardware_keys_action_voice_search">Voice search</string>
     <string name="hardware_keys_action_in_app_search">In-app search</string>
-<<<<<<< HEAD
     <string name="home_wake_title">Home button wake</string>
     <string name="home_wake_summary">Pressing the home button will wake your device</string>
     <string name="volume_wake_title">Volume button wake</string>
     <string name="volume_wake_summary">Pressing a volume button will wake your device</string>
-=======
     <string name="hardware_keys_action_sleep">Sleep</string>
->>>>>>> 4fb779b... [2/2] Make it possible to go to sleep on long press
 
     <!-- Swap volume buttons when the screen is rotated -->
     <string name="swap_volume_buttons_title">Swap volume buttons</string>
