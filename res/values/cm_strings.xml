@@ -996,12 +996,10 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     multiple font sizes in a limited amount of space. -->
     <string name="font_size_sample">Sample</string>
 
-<<<<<<< HEAD
     <!-- SELinux warning -->
     <string name="selinux_enable_title">Security Enhanced Android</string>
     <string name="selinux_enable_warning">You are about to enable SEAndroid, an advanced security mechanism, on your device.\n\nThis option exists for debugging purposes only, and it is very likely that your device isn\'t fully ready for it, which may cause parts (or all) of your hardware to block or hang.\n\nAre you sure you want to proceed?</string>
 
-=======
     <!-- Development Tools - Enable Navigation Bar -->
     <string name="force_navigation_bar_title">Force Navigation bar</string>
     <string name="force_navigation_bar_summary">Show additional on-screen navigation buttons</string>
@@ -1009,5 +1007,4 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="menu_button_enabled_summary">Respond to user input via the hardware Menu button</string>
     <string name="back_button_enabled">Back button enabled</string>
     <string name="back_button_enabled_summary">Respond to user input via the hardware Back button</string>
->>>>>>> 78e9dad... Settings: Development setting to enable navbar (2 of 2)
 </resources>
