@@ -208,7 +208,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
             mHits[mHits.length - 1] = SystemClock.uptimeMillis();
             if (mHits[0] >= (SystemClock.uptimeMillis() - 500)) {
 
-                if (mDevHitToast != null) {
+             if (mDevHitToast != null) {
                     mDevHitToast.cancel();
                 }
                 mDevHitToast = Toast.makeText(getActivity(), "Disabled as it may crash your phone!",
