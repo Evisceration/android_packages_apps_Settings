@@ -259,9 +259,19 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
             System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
             mHits[mHits.length-1] = SystemClock.uptimeMillis();
             if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
+
+             if (mDevHitToast != null) {
+                    mDevHitToast.cancel();
+                }
+                mDevHitToast = Toast.makeText(getActivity(), "Disabled as it may crash your phone!",
+                        Toast.LENGTH_LONG);
+                mDevHitToast.show();
+
+            }
+            /*
                 if (SELinux.isSELinuxEnabled()) {
                     if (!SELinux.isSELinuxEnforced()) {
-                        /* Display the warning dialog */
+                        /* Display the warning dialog ///
                         AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
                         alertDialog.setTitle(R.string.selinux_enable_title);
                         alertDialog.setMessage(getResources()
@@ -303,8 +313,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
                     String status = getResources().getString(R.string.selinux_status_enforcing);
                     setStringSummary(KEY_SELINUX_STATUS, status);
                 }
+                */
             }
-        }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
