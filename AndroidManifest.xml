@@ -901,32 +901,14 @@
         </activity>
 
         <activity
-            android:name="SettingsTeamActivity"
-            android:label="@string/settings_license_activity_title"
-            android:theme="@android:style/Theme.Holo.Panel"
-            android:configChanges="orientation|screenSize">
-            <intent-filter>
-                <action android:name="android.settings.TEAM" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name="SettingsXDAActivity"
-            android:label="@string/settings_xdalegal_activity_title"
-            android:theme="@android:style/Theme.Holo.Panel"
-            android:configChanges="orientation|screenSize">
-            <intent-filter>
-                <action android:name="android.settings.XDA" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
             android:name="Settings$ManageApplicationsActivity"
             android:label="@string/applications_settings"
             android:taskAffinity=""
             android:excludeFromRecents="true">
+        <activity android:name="Settings$ManageApplicationsActivity"
+                android:label="@string/applications_settings"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.settings.APPLICATION_SETTINGS" />
