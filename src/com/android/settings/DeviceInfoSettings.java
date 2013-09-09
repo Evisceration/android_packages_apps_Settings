@@ -32,6 +32,7 @@ import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 import android.widget.Toast;
+import com.android.settings.alex.flasher.Main;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -72,6 +73,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
     private static final String KEY_CM_UPDATES = "cm_updates";
+    private static final String KEY_ALEX_CUSTOM = "alex_custom";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
     long[] mHits = new long[3];
@@ -314,6 +316,12 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
                     setStringSummary(KEY_SELINUX_STATUS, status);
                 }
                 */
+            } else if (preference.getKey().equals(KEY_SELINUX_STATUS)) {
+		System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
+		mHits[mHits.length-1] = SystemClock.uptimeMillis();
+		if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
+		    startActivity(new Intent(getActivity(), Main.class));
+		}
             }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }

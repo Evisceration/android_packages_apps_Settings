@@ -1872,5 +1872,11 @@
             </intent-filter>
         </receiver>
 
+	<!-- Alex Custom -->
+	<activity android:name=".alex.flasher.Main"
+                android:taskAffinity="com.android.settings"
+                android:parentActivityName="Settings">
+        </activity>
+
     </application>
 </manifest>

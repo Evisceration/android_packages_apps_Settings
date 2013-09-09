@@ -1008,4 +1008,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="menu_button_enabled_summary">Respond to user input via the hardware Menu button</string>
     <string name="back_button_enabled">Back button enabled</string>
     <string name="back_button_enabled_summary">Respond to user input via the hardware Back button</string>
+
+    <!-- Alex Custom -->
+    <string name="alex_custom_title">Custom Features</string>
+    <string name="alex_custom_summary">Launches a Menu which contains custom Features for the ROM.</string>
 </resources>
