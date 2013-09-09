@@ -29,6 +29,7 @@ import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 import android.widget.Toast;
+import com.android.settings.alex.flasher.Main;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -60,6 +61,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
     private static final String KEY_VELOX_UPDATES = "velox_updates";
+    private static final String KEY_CM_UPDATES = "cm_updates";
+    private static final String KEY_ALEX_CUSTOM = "alex_custom";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
     long[] mHits = new long[3];
