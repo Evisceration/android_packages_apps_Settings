@@ -17,6 +17,7 @@ import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.settings.R;
 import com.android.settings.alex.flasher.ShellCommand;
 import com.android.settings.alex.flasher.ShellCommand.CommandResult;
 
