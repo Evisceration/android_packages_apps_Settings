@@ -49,6 +49,16 @@
                     android:targetClass="com.cyanogenmod.updater.UpdatesSettings" />
         </PreferenceScreen>
 
+        <!-- Alex Custom Menu -->
+        <PreferenceScreen
+            android:key="alex_custom"
+            android:title="@string/alex_custom_title"
+            android:summary="@string/alex_custom_summary" >
+	    <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.alex.flasher.Main" />
+        </PreferenceScreen>
+
         <!-- Change Log -->
         <PreferenceScreen android:key="changelog"
             android:title="@string/changelog_title"
