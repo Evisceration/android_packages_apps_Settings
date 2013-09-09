@@ -42,9 +42,9 @@ import java.util.zip.GZIPInputStream;
 /**
  * The "dialog" that shows from "License" in the Settings app.
  */
-public class SettingsLicenseActivity extends Activity {
+public class SettingsTeamActivity extends Activity {
 
-    private static final String TAG = "SettingsLicenseActivity";
+    private static final String TAG = "SettingsTeamActivity";
     private static final boolean LOGV = false || false;
 
     private static final String DEFAULT_LICENSE_PATH = "/system/etc/NOTICE.html.gz";
@@ -57,7 +57,7 @@ public class SettingsLicenseActivity extends Activity {
 
     private class LicenseFileLoader implements Runnable {
 
-        private static final String INNER_TAG = "SettingsLicenseActivity.LicenseFileLoader";
+        private static final String INNER_TAG = "SettingsTeamActivity.LicenseFileLoader";
         public static final int STATUS_OK = 0;
         public static final int STATUS_NOT_FOUND = 1;
         public static final int STATUS_READ_ERROR = 2;
@@ -119,7 +119,7 @@ public class SettingsLicenseActivity extends Activity {
         }
     }
 
-    public SettingsLicenseActivity() {
+    public SettingsTeamActivity() {
         super();
         mHandler = null;
         mWebView = null;
@@ -184,7 +184,7 @@ public class SettingsLicenseActivity extends Activity {
 
     private void showPageOfText(String text) {
         // Create an AlertDialog to display the WebView in.
-        AlertDialog.Builder builder = new AlertDialog.Builder(SettingsLicenseActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(SettingsTeamActivity.this);
         builder.setCancelable(true)
                .setView(mWebView)
                .setTitle(R.string.settings_license_activity_title);
@@ -193,7 +193,7 @@ public class SettingsLicenseActivity extends Activity {
         mTextDlg.setOnDismissListener(new OnDismissListener() {
 
             public void onDismiss(DialogInterface dlgi) {
-                SettingsLicenseActivity.this.finish();
+                SettingsTeamActivity.this.finish();
             }
         });
 
@@ -203,7 +203,7 @@ public class SettingsLicenseActivity extends Activity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 mSpinnerDlg.dismiss();
-                if (SettingsLicenseActivity.this.isResumed()) {
+                if (SettingsTeamActivity.this.isResumed()) {
                     mTextDlg.show();
                 }
             }
