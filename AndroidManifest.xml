@@ -1898,7 +1898,7 @@
                 android:taskAffinity="com.android.settings"
                 android:parentActivityName="Settings">
         </activity>
-	<activity android:name=".alex.flasher.Main"
+	<activity android:name=".alex.flasher.MainFlasher"
                 android:taskAffinity="com.android.settings"
                 android:parentActivityName="Settings">
         </activity>

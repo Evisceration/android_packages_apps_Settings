@@ -4535,6 +4535,9 @@
     <!-- Text to display in regulatory info screen (from device overlay). -->
     <string name="regulatory_info_text"></string>
 
+    <!-- Extra ALEX -->
+    <string name="perfcntrl">Performance Control</string>
+
     <!-- ALEX -->
     <string name="settings_xdalegal_title">View Project on XDA</string>
     <string name="settings_xdalegal_activity_title">View Project on XDA</string>
