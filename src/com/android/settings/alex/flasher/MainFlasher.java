@@ -22,7 +22,7 @@ import com.android.settings.alex.flasher.ShellCommand;
 import com.android.settings.alex.flasher.ShellCommand.CommandResult;
 
 @SuppressLint("DefaultLocale")
-public class Main extends Activity {
+public class MainFlasher extends Activity {
 
     /* Activity Elements */
     Spinner flashType;
@@ -44,7 +44,7 @@ public class Main extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alex_flasher_main);
-        Main.currentInstance = Main.this.getApplicationContext();
+        MainFlasher.currentInstance = MainFlasher.this.getApplicationContext();
         selectedFlashtype = "recovery";
         setupElements();
     }
@@ -75,7 +75,7 @@ public class Main extends Activity {
                 chooseFile.setType("file/img");
                 Intent intent = Intent.createChooser(chooseFile, "Choose a .img file");
                 startActivityForResult(intent,
-                        Main.PICK_IMGFILE_REQUEST);
+                        MainFlasher.PICK_IMGFILE_REQUEST);
             }
 
         });
@@ -90,7 +90,7 @@ public class Main extends Activity {
             public void onClick(View paramView) {
                 if (check.isChecked()) {
                     if (filelocation != null) {
-                        Builder dialog = new AlertDialog.Builder(Main.this);
+                        Builder dialog = new AlertDialog.Builder(MainFlasher.this);
                         dialog.setTitle("WARNING!").setMessage(
                                 "Please check the entered Values!\n\nFilepath: "
                                         + filelocation + "\nFlash Type: "
@@ -145,7 +145,7 @@ public class Main extends Activity {
                 + RECOVERY_PATH);
         if (cr.success()) {
             sc.su.runWaitFor("rm -rf /data/local/tmp/recovery.img");
-            Builder dialog = new AlertDialog.Builder(Main.this);
+            Builder dialog = new AlertDialog.Builder(MainFlasher.this);
             dialog.setTitle("SUCCESS!").setMessage(
                     "Successfully flashed!\n\nDo you want to reboot into Recovery now?");
             dialog.setNegativeButton("No.",
@@ -178,7 +178,7 @@ public class Main extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == Main.PICK_IMGFILE_REQUEST) {
+        if (requestCode == MainFlasher.PICK_IMGFILE_REQUEST) {
             if (resultCode == Activity.RESULT_OK) {
                 filelocation = data.getDataString();
                 filelocation = filelocation.replace("file://", "");
@@ -204,6 +204,6 @@ public class Main extends Activity {
     }
 
     private void makeToast(String msg) {
-        Toast.makeText(Main.currentInstance, msg, Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainFlasher.currentInstance, msg, Toast.LENGTH_SHORT).show();
     }
 }
