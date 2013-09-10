@@ -1065,6 +1065,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Alex Custom -->
     <string name="alex_custom_title">Custom Features</string>
     <string name="alex_custom_summary">Launches a Menu which contains custom Features for the ROM.</string>
+
     <!-- Vold Switchable Pair -->
     <string name="storage_switch_title">Use external SD as primary</string>
     <string name="storage_switch_summary_off">Using expanded internal storage for apps and media</string>
