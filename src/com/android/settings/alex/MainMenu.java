@@ -1,0 +1,52 @@
+package com.android.settings.alex;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.android.settings.alex.flasher.MainFlasher;
+import com.android.settings.R;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainMenu extends Activity {
+
+    ListView listView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.alex_main_menu);
+
+        List valueList = new ArrayList<String>();
+
+        valueList.add("ALEX_MAIN_FLASHER");
+
+        listView=(ListView)findViewById(R.id.lvAlexMenu);
+        ListAdapter adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, valueList);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if(listView.getAdapter().getItem(i).toString().equals("ALEX_MAIN_FLASHER"))
+                {
+                    startActivity(new Intent(MainMenu.this, MainFlasher.class));
+                } else if (true==false) {
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Couldn't find associated Activity!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+    }
+
+}

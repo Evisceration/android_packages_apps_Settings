@@ -32,7 +32,6 @@ import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 import android.widget.Toast;
-import com.android.settings.alex.flasher.Main;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
