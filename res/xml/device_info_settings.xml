@@ -56,7 +56,7 @@
             android:summary="@string/alex_custom_summary" >
 	    <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="com.android.settings"
-                    android:targetClass="com.android.settings.alex.flasher.Main" />
+                    android:targetClass="com.android.settings.alex.MainMenu" />
         </PreferenceScreen>
 
         <!-- Change Log -->
