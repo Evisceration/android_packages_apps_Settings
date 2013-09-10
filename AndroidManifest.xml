@@ -1898,6 +1898,13 @@
                 android:taskAffinity="com.android.settings"
                 android:parentActivityName="Settings">
         </activity>
+<<<<<<< HEAD
+=======
+	<activity android:name=".alex.flasher.MainFlasher"
+                android:taskAffinity="com.android.settings"
+                android:parentActivityName="Settings">
+        </activity>
+>>>>>>> Cleanup
 
     </application>
 </manifest>
