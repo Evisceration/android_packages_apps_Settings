@@ -4535,13 +4535,16 @@
     <!-- Text to display in regulatory info screen (from device overlay). -->
     <string name="regulatory_info_text"></string>
 
-    <!-- Extra ALEX -->
-    <string name="perfcntrl">Performance Control</string>
-
     <!-- ALEX -->
     <string name="settings_xdalegal_title">View Project on XDA</string>
     <string name="settings_xdalegal_activity_title">View Project on XDA</string>
     <string name="settings_xdalegal_activity_unreachable">You don\'t have a data connection. To view this information now, go to %s from any computer connected to the Internet.</string>
     <string name="settings_xdalegal_activity_loading">Loading\u2026</string>
+
+    <!-- Settings ALEX -->
+    <string name="header_category_alex_romextras">ROM Extras</string>
+
+    <!-- Extra ALEX -->
+    <string name="perfcntrl">Performance Control</string>
 
 </resources>

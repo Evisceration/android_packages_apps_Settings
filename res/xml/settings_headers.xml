@@ -260,12 +260,12 @@
         android:title="@string/about_settings" />
 
     <!-- ROM EXTRAS -->
-    <header android:id="@+id/interface_section"
-        android:title="@string/header_category_interface" />
+    <header android:id="@+id/alex_romextras_section"
+        android:title="@string/header_category_alex_romextras" />
 
     <!-- Alex Features -->
     <header
-	android:icon="@drawable/empty_icon"
+	android:icon="@drawable/encroid_resignin"
 	android:title="@string/alex_custom_title">
 	  <intent android:action="android.intent.action.MAIN"
 	      android:targetPackage="com.android.settings"
