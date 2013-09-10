@@ -265,7 +265,7 @@
 
     <!-- Alex Features -->
     <header
-	android:icon="@drawable/ic_settings_alex"
+	android:icon="@drawable/encroid_resignin"
 	android:title="@string/alex_custom_title">
 	  <intent android:action="android.intent.action.MAIN"
 	      android:targetPackage="com.android.settings"
