@@ -1712,7 +1712,7 @@
 
         <activity android:name=".cyanogenmod.ButtonSettings" />
 
-        <activity android:name=".cyanogenmod.ChangeLog" />
+        <activity android:name=".alex.ChangeLog" />
 
         <activity android:name=".cyanogenmod.LockscreenInterface" />
 
