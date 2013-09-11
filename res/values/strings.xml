@@ -4569,6 +4569,9 @@
     <!-- HALO Statusbar -->
     <string name="status_bar_halo_title">HALO</string>
 
+    <!-- HALO Statusbar -->
+    <string name="status_bar_halo_title">HALO</string>
+
     <!-- ALEX -->
     <string name="settings_xdalegal_title">View Project on XDA</string>
     <string name="settings_xdalegal_activity_title">View Project on XDA</string>

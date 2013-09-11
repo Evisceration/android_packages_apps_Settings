@@ -113,6 +113,10 @@
             android:defaultValue="false" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="status_bar_halo"
+        android:title="@string/status_bar_halo_title">
+
         <ListPreference
             android:key="halo_state"
             android:dialogTitle="@string/halo_state_title"
@@ -132,5 +136,6 @@
             android:title="@string/halo_reversed_title"
             android:summary="@string/halo_reversed_summary"
             android:defaultValue="true" />
+    </PreferenceCategory>
 
 </PreferenceScreen>
