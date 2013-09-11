@@ -100,7 +100,7 @@ public class InstalledAppDetails extends Fragment
         ApplicationsState.Callbacks {
     private static final String TAG="InstalledAppDetails";
     private static final boolean localLOGV = false;
-    
+
     public static final String ARG_PACKAGE_NAME = "package";
 
     private PackageManager mPm;
@@ -109,11 +109,13 @@ public class InstalledAppDetails extends Fragment
     private AppWidgetManager mAppWidgetManager;
     private DevicePolicyManager mDpm;
     private ISms mSmsManager;
+    private INotificationManager mNotificationManager;
     private ApplicationsState mState;
     private ApplicationsState.Session mSession;
     private ApplicationsState.AppEntry mAppEntry;
     private boolean mInitialized;
     private boolean mShowUninstalled;
+    private boolean mHaloPolicyIsBlack = true;
     private PackageInfo mPackageInfo;
     private CanBeOnSdCardChecker mCanBeOnSdCardChecker;
     private View mRootView;
@@ -141,7 +143,7 @@ public class InstalledAppDetails extends Fragment
     private Button mForceStopButton;
     private Button mClearDataButton;
     private Button mMoveAppButton;
-    private CompoundButton mNotificationSwitch;
+    private CompoundButton mNotificationSwitch, mHaloState;
     private CompoundButton mPrivacyGuardSwitch;
 
     private PackageMoveObserver mPackageMoveObserver;
@@ -156,22 +158,22 @@ public class InstalledAppDetails extends Fragment
     private long mLastExternalDataSize = -1;
     private long mLastCacheSize = -1;
     private long mLastTotalSize = -1;
-    
+
     //internal constants used in Handler
     private static final int OP_SUCCESSFUL = 1;
     private static final int OP_FAILED = 2;
     private static final int CLEAR_USER_DATA = 1;
     private static final int CLEAR_CACHE = 3;
     private static final int PACKAGE_MOVE = 4;
-    
+
     // invalid size value used initially and also when size retrieval through PackageManager
     // fails for whatever reason
     private static final int SIZE_INVALID = -1;
-    
+
     // Resource strings
     private CharSequence mInvalidSizeStr;
     private CharSequence mComputingStr;
-    
+
     // Dialog identifiers used in showDialog
     private static final int DLG_BASE = 0;
     private static final int DLG_CLEAR_DATA = DLG_BASE + 1;
@@ -214,7 +216,7 @@ public class InstalledAppDetails extends Fragment
             }
         }
     };
-    
+
     class ClearUserDataObserver extends IPackageDataObserver.Stub {
        public void onRemoveCompleted(final String packageName, final boolean succeeded) {
            final Message msg = mHandler.obtainMessage(CLEAR_USER_DATA);
@@ -222,7 +224,7 @@ public class InstalledAppDetails extends Fragment
            mHandler.sendMessage(msg);
         }
     }
-    
+
     class ClearCacheObserver extends IPackageDataObserver.Stub {
         public void onRemoveCompleted(final String packageName, final boolean succeeded) {
             final Message msg = mHandler.obtainMessage(CLEAR_CACHE);
@@ -238,14 +240,14 @@ public class InstalledAppDetails extends Fragment
             mHandler.sendMessage(msg);
         }
     }
-    
+
     private String getSizeStr(long size) {
         if (size == SIZE_INVALID) {
             return mInvalidSizeStr.toString();
         }
         return Formatter.formatFileSize(getActivity(), size);
     }
-    
+
     private void initDataButtons() {
         if ((mAppEntry.info.flags&(ApplicationInfo.FLAG_SYSTEM
                 | ApplicationInfo.FLAG_ALLOW_CLEAR_USER_DATA))
@@ -386,16 +388,18 @@ public class InstalledAppDetails extends Fragment
     }
 
     private void initNotificationButton() {
-        INotificationManager nm = INotificationManager.Stub.asInterface(
-                ServiceManager.getService(Context.NOTIFICATION_SERVICE));
         boolean enabled = true; // default on
+        boolean allowedForHalo = true; // default on
         try {
-            enabled = nm.areNotificationsEnabledForPackage(mAppEntry.info.packageName,
+            enabled = mNotificationManager.areNotificationsEnabledForPackage(mAppEntry.info.packageName,
                     mAppEntry.info.uid);
+            allowedForHalo = mNotificationManager.isPackageAllowedForHalo(mAppEntry.info.packageName);
         } catch (android.os.RemoteException ex) {
             // this does not bode well
         }
         mNotificationSwitch.setChecked(enabled);
+        mHaloState.setChecked((mHaloPolicyIsBlack ? !allowedForHalo : allowedForHalo));
+        mHaloState.setOnCheckedChangeListener(this);
         if (isThisASystemPackage()) {
             mNotificationSwitch.setEnabled(false);
         } else {
@@ -429,8 +433,15 @@ public class InstalledAppDetails extends Fragment
         mAppWidgetManager = AppWidgetManager.getInstance(getActivity());
         mDpm = (DevicePolicyManager)getActivity().getSystemService(Context.DEVICE_POLICY_SERVICE);
         mSmsManager = ISms.Stub.asInterface(ServiceManager.getService("isms"));
-
+	mNotificationManager = INotificationManager.Stub.asInterface(
+                ServiceManager.getService(Context.NOTIFICATION_SERVICE));
         mCanBeOnSdCardChecker = new CanBeOnSdCardChecker();
+
+        try {
+            mHaloPolicyIsBlack = mNotificationManager.isHaloPolicyBlack();
+        } catch (android.os.RemoteException ex) {
+            // System dead
+        }
 
         // Need to make sure we have loaded applications at this point.
         mSession.resume();
@@ -448,7 +459,7 @@ public class InstalledAppDetails extends Fragment
 
         mRootView = view;
         mComputingStr = getActivity().getText(R.string.computing_size);
-        
+
         // Set default values on sizes
         mTotalSize = (TextView)view.findViewById(R.id.total_size_text);
         mAppSize = (TextView)view.findViewById(R.id.application_size_text);
@@ -467,30 +478,32 @@ public class InstalledAppDetails extends Fragment
         mForceStopButton.setText(R.string.force_stop);
         mUninstallButton = (Button)btnPanel.findViewById(R.id.right_button);
         mForceStopButton.setEnabled(false);
-        
+
         // Get More Control button panel
         mMoreControlButtons = view.findViewById(R.id.more_control_buttons_panel);
         mMoreControlButtons.findViewById(R.id.left_button).setVisibility(View.INVISIBLE);
         mSpecialDisableButton = (Button)mMoreControlButtons.findViewById(R.id.right_button);
         mMoreControlButtons.setVisibility(View.GONE);
-        
+
         // Initialize clear data and move install location buttons
         View data_buttons_panel = view.findViewById(R.id.data_buttons_panel);
         mClearDataButton = (Button) data_buttons_panel.findViewById(R.id.right_button);
         mMoveAppButton = (Button) data_buttons_panel.findViewById(R.id.left_button);
-        
+
         // Cache section
         mCacheSize = (TextView) view.findViewById(R.id.cache_size_text);
         mClearCacheButton = (Button) view.findViewById(R.id.clear_cache_button);
 
         mActivitiesButton = (Button)view.findViewById(R.id.clear_activities_button);
-        
+
         // Screen compatibility control
         mScreenCompatSection = view.findViewById(R.id.screen_compatibility_section);
         mAskCompatibilityCB = (CheckBox)view.findViewById(R.id.ask_compatibility_cb);
         mEnableCompatibilityCB = (CheckBox)view.findViewById(R.id.enable_compatibility_cb);
-        
+
         mNotificationSwitch = (CompoundButton) view.findViewById(R.id.notification_switch);
+        mHaloState = (CompoundButton) view.findViewById(R.id.halo_state);
+        mHaloState.setText((mHaloPolicyIsBlack ? R.string.app_halo_label_black : R.string.app_halo_label_white));
 
         mPrivacyGuardSwitch = (CompoundButton) view.findViewById(R.id.privacy_guard_switch);
 
@@ -586,7 +599,7 @@ public class InstalledAppDetails extends Fragment
     @Override
     public void onResume() {
         super.onResume();
-        
+
         mSession.resume();
         if (!refreshUi()) {
             setIntentAndFinish(true, true);
@@ -672,7 +685,7 @@ public class InstalledAppDetails extends Fragment
 
         // Get list of preferred activities
         List<ComponentName> prefActList = new ArrayList<ComponentName>();
-        
+
         // Intent list cannot be null. so pass empty list
         List<IntentFilter> intentList = new ArrayList<IntentFilter>();
         mPm.getPreferredActivities(intentList, prefActList, packageName);
@@ -832,7 +845,7 @@ public class InstalledAppDetails extends Fragment
                 }
             }
         }
-        
+
         checkForceStop();
         setAppLabelAndIcon(mPackageInfo);
         refreshButtons();
@@ -904,7 +917,7 @@ public class InstalledAppDetails extends Fragment
             }
         }
     }
-    
+
     private void resetLaunchDefaultsUi(TextView title, TextView autoLaunchView) {
         title.setText(R.string.auto_launch_label);
         autoLaunchView.setText(R.string.auto_launch_disable_text);
@@ -919,7 +932,7 @@ public class InstalledAppDetails extends Fragment
         PreferenceActivity pa = (PreferenceActivity)getActivity();
         pa.finishPreferencePanel(this, Activity.RESULT_OK, intent);
     }
-    
+
     private void refreshSizeInfo() {
         if (mAppEntry.size == ApplicationsState.SIZE_INVALID
                 || mAppEntry.size == ApplicationsState.SIZE_UNKNOWN) {
@@ -932,7 +945,7 @@ public class InstalledAppDetails extends Fragment
             }
             mClearDataButton.setEnabled(false);
             mClearCacheButton.setEnabled(false);
-            
+
         } else {
             mHaveSizes = true;
             long codeSize = mAppEntry.codeSize;
@@ -967,7 +980,7 @@ public class InstalledAppDetails extends Fragment
                 mLastTotalSize = mAppEntry.size;
                 mTotalSize.setText(getSizeStr(mAppEntry.size));
             }
-            
+
             if ((mAppEntry.dataSize+ mAppEntry.externalDataSize) <= 0 || !mCanClearData) {
                 mClearDataButton.setEnabled(false);
             } else {
@@ -982,7 +995,7 @@ public class InstalledAppDetails extends Fragment
             }
         }
     }
-    
+
     /*
      * Private method to handle clear message notification from observer when
      * the async operation from PackageManager is complete
@@ -1030,7 +1043,7 @@ public class InstalledAppDetails extends Fragment
     }
 
     /*
-     * Private method to initiate clearing user data when the user clicks the clear data 
+     * Private method to initiate clearing user data when the user clicks the clear data
      * button for a system package
      */
     private  void initiateClearUserData() {
@@ -1052,13 +1065,13 @@ public class InstalledAppDetails extends Fragment
             mClearDataButton.setText(R.string.recompute_size);
         }
     }
-    
+
     private void showDialogInner(int id, int moveErrorCode) {
         DialogFragment newFragment = MyAlertDialogFragment.newInstance(id, moveErrorCode);
         newFragment.setTargetFragment(this, 0);
         newFragment.show(getFragmentManager(), "dialog " + id);
     }
-    
+
     public static class MyAlertDialogFragment extends DialogFragment {
 
         public static MyAlertDialogFragment newInstance(int id, int moveErrorCode) {
@@ -1285,7 +1298,7 @@ public class InstalledAppDetails extends Fragment
         mForceStopButton.setEnabled(enabled);
         mForceStopButton.setOnClickListener(InstalledAppDetails.this);
     }
-    
+
     private void checkForceStop() {
         if (mDpm.packageHasActiveAdmins(mPackageInfo.packageName)) {
             // User can't force stop device admin.
@@ -1326,14 +1339,19 @@ public class InstalledAppDetails extends Fragment
     }
 
     private void setNotificationsEnabled(boolean enabled) {
-        String packageName = mAppEntry.info.packageName;
-        INotificationManager nm = INotificationManager.Stub.asInterface(
-                ServiceManager.getService(Context.NOTIFICATION_SERVICE));
         try {
             final boolean enable = mNotificationSwitch.isChecked();
-            nm.setNotificationsEnabledForPackage(packageName, mAppEntry.info.uid, enabled);
+            mNotificationManager.setNotificationsEnabledForPackage(packageName, mAppEntry.info.uid, enabled);
         } catch (android.os.RemoteException ex) {
             mNotificationSwitch.setChecked(!enabled); // revert
+        }
+    }
+
+    private void setHaloState(boolean state) {
+        try {
+            mNotificationManager.setHaloStatus(mAppEntry.info.packageName, state);
+        } catch (android.os.RemoteException ex) {
+            mHaloState.setChecked(!state); // revert
         }
     }
 
@@ -1439,6 +1457,8 @@ public class InstalledAppDetails extends Fragment
             } else {
                 setNotificationsEnabled(true);
             }
+        } else if (buttonView == mHaloState) {
+            setHaloState(isChecked);
         } else if (buttonView == mPrivacyGuardSwitch) {
             if (isChecked) {
                 showDialogInner(DLG_PRIVACY_GUARD, 0);
