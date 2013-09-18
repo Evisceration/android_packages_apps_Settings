@@ -4577,6 +4577,14 @@
 
     <!-- Settings ALEX -->
     <string name="header_category_alex_romextras">ROM Extras</string>
+    <!-- Graphics Settings -->
+    <string name="alex_graphics_settings_title">Graphics</string>
+    <string name="alex_graphics_settings_summary">Note: some changes may require a phone reboot!</string>
+    <string name="alex_wallpaper_category_title">Wallpaper</string>
+    <string name="alex_wallpaper_use_dither_title">Use Dithering</string>
+    <string name="alex_wallpaper_use_dither_summary">If checked, dithering for wallpapers will be used.</string>
+    <string name="alex_wallpaper_pixelformat_565_title">Use RGB 565 Pixelformat</string>
+    <string name="alex_wallpaper_pixelformat_565_summary">If checked, RGB 565 will be used as Pixelformat.</string>
 
     <!-- Extra ALEX -->
     <string name="perfcntrl">Performance Control</string>
