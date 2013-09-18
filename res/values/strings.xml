@@ -4579,7 +4579,7 @@
     <string name="header_category_alex_romextras">ROM Extras</string>
     <!-- Graphics Settings -->
     <string name="alex_graphics_settings_title">Graphics</string>
-    <string name="alex_graphics_settings_summary">Note: some changes may require a phone reboot!</string>
+    <string name="alex_graphics_settings_summary">Note: some changes may require a phone reboot!</string> <<<<<<< HEAD
     <!-- Graphics Category -->
     <string name="alex_graphics_category_title">Graphics</string>
     <!-- HALO Category -->
