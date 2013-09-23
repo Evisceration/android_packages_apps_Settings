@@ -26,17 +26,11 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
-<<<<<<< HEAD
 /*import com.android.settings.alex.SeekBarPreference;*/
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import static android.hardware.Sensor.TYPE_LIGHT;
-=======
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
-
->>>>>>> Settings: Add ActiveDisplay (1/2)
 import static android.hardware.Sensor.TYPE_PROXIMITY;
 
 public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
@@ -47,18 +41,11 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_SHOW_TEXT = "ad_text";
     private static final String KEY_ALL_NOTIFICATIONS = "ad_all_notifications";
     private static final String KEY_POCKET_MODE = "ad_pocket_mode";
-<<<<<<< HEAD
     private static final String KEY_SUNLIGHT_MODE = "ad_sunlight_mode";
     private static final String KEY_REDISPLAY = "ad_redisplay";
     private static final String KEY_SHOW_DATE = "ad_show_date";
     private static final String KEY_SHOW_AMPM = "ad_show_ampm";
     /*private static final String KEY_BRIGHTNESS = "ad_brightness";*/
-=======
-    private static final String KEY_REDISPLAY = "ad_redisplay";
-    private static final String KEY_SHOW_DATE = "ad_show_date";
-    private static final String KEY_SHOW_AMPM = "ad_show_ampm";
-    private static final String KEY_BRIGHTNESS = "ad_brightness";
->>>>>>> Settings: Add ActiveDisplay (1/2)
 
     private SwitchPreference mEnabledPref;
     private CheckBoxPreference mShowTextPref;
@@ -66,14 +53,9 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mShowAmPmPref;
     private CheckBoxPreference mAllNotificationsPref;
     private CheckBoxPreference mPocketModePref;
-<<<<<<< HEAD
     private CheckBoxPreference mSunlightModePref;
     private ListPreference mRedisplayPref;
     /*private SeekBarPreference mBrightnessLevel;*/
-=======
-    private ListPreference mRedisplayPref;
-    private SeekBarPreference mBrightnessLevel;
->>>>>>> Settings: Add ActiveDisplay (1/2)
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -101,7 +83,6 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
             getPreferenceScreen().removePreference(mPocketModePref);
         }
 
-<<<<<<< HEAD
         mSunlightModePref = (CheckBoxPreference) findPreference(KEY_SUNLIGHT_MODE);
         mSunlightModePref.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.ACTIVE_DISPLAY_SUNLIGHT_MODE, 0) == 1));
@@ -109,8 +90,6 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
             getPreferenceScreen().removePreference(mSunlightModePref);
         }
 
-=======
->>>>>>> Settings: Add ActiveDisplay (1/2)
         PreferenceScreen prefSet = getPreferenceScreen();
         mRedisplayPref = (ListPreference) prefSet.findPreference(KEY_REDISPLAY);
         mRedisplayPref.setOnPreferenceChangeListener(this);
@@ -127,17 +106,10 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
         mShowAmPmPref.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.ACTIVE_DISPLAY_SHOW_AMPM, 0) == 1));
 
-<<<<<<< HEAD
         /*mBrightnessLevel = (SeekBarPreference) findPreference(KEY_BRIGHTNESS);
         mBrightnessLevel.setValue(Settings.System.getInt(getContentResolver(),
                 Settings.System.ACTIVE_DISPLAY_BRIGHTNESS, 100));
         mBrightnessLevel.setOnPreferenceChangeListener(this);*/
-=======
-        mBrightnessLevel = (SeekBarPreference) findPreference(KEY_BRIGHTNESS);
-        mBrightnessLevel.setValue(Settings.System.getInt(getContentResolver(),
-                Settings.System.ACTIVE_DISPLAY_BRIGHTNESS, 100));
-        mBrightnessLevel.setOnPreferenceChangeListener(this);
->>>>>>> Settings: Add ActiveDisplay (1/2)
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -150,20 +122,12 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
                     Settings.System.ENABLE_ACTIVE_DISPLAY,
                     ((Boolean) newValue).booleanValue() ? 1 : 0);
             return true;
-<<<<<<< HEAD
         } /*else if (preference == mBrightnessLevel) {
-=======
-        } else if (preference == mBrightnessLevel) {
->>>>>>> Settings: Add ActiveDisplay (1/2)
             int brightness = ((Integer)newValue).intValue();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.ACTIVE_DISPLAY_BRIGHTNESS, brightness);
             return true;
-<<<<<<< HEAD
         }*/
-=======
-        }
->>>>>>> Settings: Add ActiveDisplay (1/2)
         return false;
     }
 
@@ -186,14 +150,11 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.ACTIVE_DISPLAY_POCKET_MODE,
                     value ? 1 : 0);
-<<<<<<< HEAD
         } else if (preference == mSunlightModePref) {
             value = mSunlightModePref.isChecked();
             Settings.System.putInt(getContentResolver(),
                     Settings.System.ACTIVE_DISPLAY_SUNLIGHT_MODE,
                     value ? 1 : 0);
-=======
->>>>>>> Settings: Add ActiveDisplay (1/2)
         } else if (preference == mShowDatePref) {
             value = mShowDatePref.isChecked();
             Settings.System.putInt(getContentResolver(),
@@ -221,12 +182,9 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
         SensorManager sm = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
         return sm.getDefaultSensor(TYPE_PROXIMITY) != null;
     }
-<<<<<<< HEAD
 
     private boolean hasLightSensor() {
         SensorManager sm = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
         return sm.getDefaultSensor(TYPE_LIGHT) != null;
     }
-=======
->>>>>>> Settings: Add ActiveDisplay (1/2)
 }
