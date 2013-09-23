@@ -72,7 +72,7 @@
             android:summary="@string/ad_show_ampm_summary"
             android:dependency="ad_enable"/>
 
-        <com.android.settings.alex.SeekBarPreference
+        <!--<com.android.settings.alex.SeekBarPreference
             android:key="ad_brightness"
             android:persistent="false"
             android:title="@string/ad_brightness_title"
@@ -82,6 +82,6 @@
             settings:unitsLeft=""
             settings:unitsRight="%"
             android:defaultValue="100"
-            android:dependency="ad_enable" />
+	    android:dependency="ad_enable" />-->
 
 </PreferenceScreen>
