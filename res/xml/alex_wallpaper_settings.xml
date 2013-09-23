@@ -18,6 +18,9 @@
         android:title="@string/alex_graphics_settings_title"
 	android:summary="@string/alex_graphics_settings_summary" >
 
+	<PreferenceCategory
+	  android:title="@string/alex_wallpaper_category_title" >
+
         <CheckBoxPreference
             android:key="alex_wallpaper_use_dither"
             android:title="@string/alex_wallpaper_use_dither_title"
@@ -29,5 +32,15 @@
             android:title="@string/alex_wallpaper_pixelformat_565_title"
             android:summary="@string/alex_wallpaper_pixelformat_565_summary"
             android:defaultValue="false" />
+
+	</PreferenceCategory>
+
+    <!-- Active display -->
+    <PreferenceScreen
+        android:key="active_display"
+        android:fragment="com.android.settings.alex.ActiveDisplaySettings"
+        android:title="@string/ad_settings_title"
+        android:summary="@string/ad_settings_summary">
+    </PreferenceScreen>
 
 </PreferenceScreen>
