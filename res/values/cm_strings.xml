@@ -565,6 +565,7 @@
     <!-- Power menu enable disable -->
     <string name="power_menu_title">Power menu</string>
     <string name="power_menu_reboot_title">Reboot menu</string>
+    <string name="power_menu_hot_reboot_title">Hot Reboot (only if Reboot menu)</string>
     <string name="power_menu_screenshot_title">Screenshot</string>
     <string name="power_menu_expanded_desktop">Expanded desktop</string>
     <string name="expanded_desktop_disabled">Disabled</string>
