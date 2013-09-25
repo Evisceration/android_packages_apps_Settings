@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Settings.iml" filepath="$PROJECT_DIR$/Settings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/SystemUI/SystemUI.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/SystemUI/SystemUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../frameworks/base/packages/SystemUI/tests/tests.iml" filepath="$PROJECT_DIR$/../../../frameworks/base/packages/SystemUI/tests/tests.iml" />
+    </modules>
+  </component>
+</project>
+
