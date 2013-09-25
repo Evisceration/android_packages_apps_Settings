@@ -4580,6 +4580,9 @@
     <!-- Graphics Settings -->
     <string name="alex_graphics_settings_title">Graphics</string>
     <string name="alex_graphics_settings_summary">Note: some changes may require a phone reboot!</string>
+    <!-- Graphics Category -->
+    <string name="alex_graphics_category_title">Graphics</string>
+    <!-- Wallpaper Category -->
     <string name="alex_wallpaper_category_title">Wallpaper</string>
     <string name="alex_wallpaper_use_dither_title">Use Dithering</string>
     <string name="alex_wallpaper_use_dither_summary">If checked, dithering for wallpapers will be used.</string>
