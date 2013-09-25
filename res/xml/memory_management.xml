@@ -32,9 +32,9 @@
         android:title="@string/pref_purgeable_assets_title"
         android:summary="@string/pref_purgeable_assets_summary" />
 
-    <CheckBoxPreference
+    <!--CheckBoxPreference
         android:key="pref_ksm"
         android:title="@string/pref_ksm_title"
-        android:summary="@string/pref_ksm_summary" />
+        android:summary="@string/pref_ksm_summary" /-->
 
 </PreferenceScreen>
