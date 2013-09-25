@@ -158,7 +158,7 @@ public class QuickSettingsUtil {
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_NETWORKADB, R.string.title_tile_network_adb,
                 "com.android.systemui:drawable/ic_qs_network_adb_off"));
-	registerTile(new QuickSettingsUril.TileInfo(
+	registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_HALO, R.string.title_tile_halo,
                 "com.android.systemui:drawable/ic_qs_halo_off"));
     }
