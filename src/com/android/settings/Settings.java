@@ -240,6 +240,9 @@ public class Settings extends PreferenceActivity
                 ((HeaderAdapter) listAdapter).resume();
             }
             invalidateHeaders();
+        } else {
+            startActivity(new Intent(Settings.this, TabbedSettings.class));
+            return;
         }
     }
 
