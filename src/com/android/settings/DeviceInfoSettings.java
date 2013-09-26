@@ -60,8 +60,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
     private static final String KEY_VELOX_UPDATES = "velox_updates";
-    private static final String KEY_CM_UPDATES = "cm_updates";
-    private static final String KEY_VELOX_UPDATES = "velox_updates";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
     long[] mHits = new long[3];
