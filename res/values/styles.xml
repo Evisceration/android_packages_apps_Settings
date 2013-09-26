@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2006 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2006 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,6 +14,17 @@
 -->
 
 <resources>
+
+    <style name="alex_pref_cat">
+        <item name="android:background">@color/alex_cat_gray</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">6dip</item>
+    </style>
 
     <style name="info_label">
         <item name="android:layout_height">wrap_content</item>
@@ -57,8 +67,7 @@
     </style>
 
 
-    <style name="TextAppearance" parent="android:TextAppearance">
-    </style>
+    <style name="TextAppearance" parent="android:TextAppearance"></style>
 
     <style name="TextAppearance.info_label">
         <item name="android:textSize">14sp</item>
@@ -86,8 +95,7 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
-    <style name="Theme.CreateShortCut" parent="android:Theme.Holo.DialogWhenLarge">
-    </style>
+    <style name="Theme.CreateShortCut" parent="android:Theme.Holo.DialogWhenLarge"></style>
 
     <style name="setup_wizard_theme" parent="android:Theme.Holo.NoActionBar">
         <item name="android:windowSoftInputMode">adjustPan</item>

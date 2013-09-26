@@ -4582,6 +4582,8 @@
     <string name="alex_graphics_settings_summary">Note: some changes may require a phone reboot!</string>
     <!-- Graphics Category -->
     <string name="alex_graphics_category_title">Graphics</string>
+    <!-- HALO Category -->
+    <string name="alex_halo_category_title">HALO)))</string>
     <!-- Wallpaper Category -->
     <string name="alex_wallpaper_category_title">Wallpaper</string>
     <string name="alex_wallpaper_use_dither_title">Use Dithering</string>
