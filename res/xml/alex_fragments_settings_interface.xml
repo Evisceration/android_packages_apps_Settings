@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Homescreen -->
+    <PreferenceScreen
+        android:id="@+id/homescreen_settings"
+        android:key="alex_homescreen_settings"
+        android:title="@string/homescreen_settings_title"
+        android:icon="@drawable/ic_settings_cmlauncher" />
+
+    <!-- Lock screen -->
+    <PreferenceScreen
+        android:id="@+id/lock_screen_settings"
+        android:title="@string/lock_screen_title"
+        android:icon="@drawable/ic_settings_lockscreen">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="lockscreensettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Themes -->
+    <PreferenceScreen
+        android:id="@+id/themes_settings"
+        android:icon="@drawable/ic_settings_themes"
+        android:title="@string/themes_settings_title">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.tmobile.themechooser"
+            android:targetClass="com.tmobile.themechooser.ThemeChooser" />
+    </PreferenceScreen>
+
+    <!-- System UI -->
+    <PreferenceScreen
+        android:id="@+id/system_settings"
+        android:icon="@drawable/ic_settings_system"
+        android:title="@string/system_settings_title">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="systemsettings" />
+        </intent>
+    </PreferenceScreen>
+</PreferenceScreen>

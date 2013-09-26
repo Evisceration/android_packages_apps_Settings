@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Manage Account -->
+    <PreferenceScreen android:title="@string/alex_manage_account_label" />
+
+    <!-- Add Account -->
+    <PreferenceScreen
+        android:id="@+id/account_add"
+        android:title="@string/add_account_label"
+        android:icon="@drawable/ic_menu_add">
+        <intent android:action="android.settings.ADD_ACCOUNT_SETTINGS" />
+    </PreferenceScreen>
+
+</PreferenceScreen>

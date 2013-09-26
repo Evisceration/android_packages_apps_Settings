@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Sound -->
+    <PreferenceScreen
+        android:id="@+id/sound_settings"
+        android:icon="@drawable/ic_settings_sound"
+        android:title="@string/sound_settings">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="soundsettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Display -->
+    <PreferenceScreen
+        android:id="@+id/display_settings"
+        android:icon="@drawable/ic_settings_display"
+        android:title="@string/display_settings">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="displaysettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Buttons -->
+    <PreferenceScreen
+        android:id="@+id/button_settings"
+        android:icon="@drawable/ic_settings_buttons"
+        android:title="@string/button_settings">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="buttonsettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Storage -->
+    <PreferenceScreen
+        android:id="@+id/storage_settings"
+        android:icon="@drawable/ic_settings_storage"
+        android:title="@string/storage_settings">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="storagesettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Battery -->
+    <PreferenceScreen
+        android:id="@+id/battery_settings"
+        android:icon="@drawable/ic_settings_battery"
+        android:title="@string/power_usage_summary_title">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="batterysettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Application Settings -->
+    <PreferenceScreen
+        android:icon="@drawable/ic_settings_applications"
+        android:title="@string/applications_settings"
+        android:id="@+id/application_settings">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="applicationsettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Other device controls -->
+    <PreferenceScreen
+        android:id="@+id/more_device_settings"
+        android:title="@string/more_device_controls_title"
+        android:breadCrumbTitle="@string/more_device_settings_title"
+        android:icon="@drawable/empty_icon">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="moredevicesettings" />
+        </intent>
+    </PreferenceScreen>
+</PreferenceScreen>

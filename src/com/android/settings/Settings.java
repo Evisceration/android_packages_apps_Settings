@@ -16,15 +16,12 @@
 
 package com.android.settings;
 
-import com.android.settings.profiles.ProfileEnabler;
-
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.OnAccountsUpdateListener;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.RestrictionEntry;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
@@ -64,6 +61,7 @@ import com.android.settings.bluetooth.BluetoothEnabler;
 import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.profiles.AppGroupConfig;
 import com.android.settings.profiles.ProfileConfig;
+import com.android.settings.profiles.ProfileEnabler;
 import com.android.settings.profiles.ProfilesSettings;
 import com.android.settings.wfd.WifiDisplaySettings;
 import com.android.settings.wifi.WifiEnabler;
@@ -85,13 +83,13 @@ public class Settings extends PreferenceActivity
     private static final String LOG_TAG = "Settings";
 
     private static final String META_DATA_KEY_HEADER_ID =
-        "com.android.settings.TOP_LEVEL_HEADER_ID";
+            "com.android.settings.TOP_LEVEL_HEADER_ID";
     private static final String META_DATA_KEY_FRAGMENT_CLASS =
-        "com.android.settings.FRAGMENT_CLASS";
+            "com.android.settings.FRAGMENT_CLASS";
     private static final String META_DATA_KEY_PARENT_TITLE =
-        "com.android.settings.PARENT_FRAGMENT_TITLE";
+            "com.android.settings.PARENT_FRAGMENT_TITLE";
     private static final String META_DATA_KEY_PARENT_FRAGMENT_CLASS =
-        "com.android.settings.PARENT_FRAGMENT_CLASS";
+            "com.android.settings.PARENT_FRAGMENT_CLASS";
 
     private static final String EXTRA_UI_OPTIONS = "settings:ui_options";
 
@@ -272,6 +270,7 @@ public class Settings extends PreferenceActivity
 
     /**
      * Switch to parent fragment and store the grand parent's info
+     *
      * @param className name of the activity wrapper for the parent fragment.
      */
     private void switchToParent(String className) {
@@ -389,7 +388,7 @@ public class Settings extends PreferenceActivity
 
     @Override
     public Intent onBuildStartFragmentIntent(String fragmentName, Bundle args,
-            CharSequence titleText, CharSequence shortTitleText) {
+                                             CharSequence titleText, CharSequence shortTitleText) {
         Intent intent = super.onBuildStartFragmentIntent(fragmentName, args,
                 titleText, shortTitleText);
         onBuildStartFragmentIntentHelper(fragmentName, intent);
@@ -398,7 +397,7 @@ public class Settings extends PreferenceActivity
 
     @Override
     public Intent onBuildStartFragmentIntent(String fragmentName, Bundle args,
-            int titleRes, int shortTitleRes) {
+                                             int titleRes, int shortTitleRes) {
         Intent intent = super.onBuildStartFragmentIntent(fragmentName, args,
                 titleRes, shortTitleRes);
         onBuildStartFragmentIntentHelper(fragmentName, intent);
@@ -514,7 +513,7 @@ public class Settings extends PreferenceActivity
                 final Resources res = getResources();
                 boolean hasLed =
                         res.getBoolean(com.android.internal.R.bool.config_intrusiveNotificationLed)
-                        || res.getBoolean(com.android.internal.R.bool.config_intrusiveBatteryLed);
+                                || res.getBoolean(com.android.internal.R.bool.config_intrusiveBatteryLed);
                 if (hasLed) {
                     header.titleRes = R.string.display_lights_settings_title;
                 }
@@ -657,9 +656,6 @@ public class Settings extends PreferenceActivity
         static int getHeaderType(Header header) {
             if (header.fragment == null && header.intent == null) {
                 return HEADER_TYPE_CATEGORY;
-            } else if (header.id == R.id.wifi_settings
-                    || header.id == R.id.bluetooth_settings) {
-                return HEADER_TYPE_SWITCH;
             } else {
                 return HEADER_TYPE_NORMAL;
             }
@@ -692,11 +688,11 @@ public class Settings extends PreferenceActivity
         }
 
         public HeaderAdapter(Context context, List<Header> objects,
-                AuthenticatorHelper authenticatorHelper) {
+                             AuthenticatorHelper authenticatorHelper) {
             super(context, 0, objects);
 
             mAuthHelper = authenticatorHelper;
-            mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             // Temp Switches provided as placeholder until the adapter replaces these with actual
             // Switches inflated from their layouts. Must be done before adapter is set in super
@@ -869,53 +865,150 @@ public class Settings extends PreferenceActivity
     /*
      * Settings subclasses for launching independently.
      */
-    public static class BluetoothSettingsActivity extends Settings { /* empty */ }
-    public static class WirelessSettingsActivity extends Settings { /* empty */ }
-    public static class TetherSettingsActivity extends Settings { /* empty */ }
-    public static class VpnSettingsActivity extends Settings { /* empty */ }
-    public static class DateTimeSettingsActivity extends Settings { /* empty */ }
-    public static class StorageSettingsActivity extends Settings { /* empty */ }
-    public static class WifiSettingsActivity extends Settings { /* empty */ }
-    public static class WifiP2pSettingsActivity extends Settings { /* empty */ }
-    public static class InputMethodAndLanguageSettingsActivity extends Settings { /* empty */ }
-    public static class KeyboardLayoutPickerActivity extends Settings { /* empty */ }
-    public static class InputMethodAndSubtypeEnablerActivity extends Settings { /* empty */ }
-    public static class SpellCheckersSettingsActivity extends Settings { /* empty */ }
-    public static class LocalePickerActivity extends Settings { /* empty */ }
-    public static class UserDictionarySettingsActivity extends Settings { /* empty */ }
-    public static class SoundSettingsActivity extends Settings { /* empty */ }
-    public static class DisplaySettingsActivity extends Settings { /* empty */ }
-    public static class DeviceInfoSettingsActivity extends Settings { /* empty */ }
-    public static class ApplicationSettingsActivity extends Settings { /* empty */ }
-    public static class ManageApplicationsActivity extends Settings { /* empty */ }
-    public static class AppOpsSummaryActivity extends Settings { /* empty */ }
-    public static class StorageUseActivity extends Settings { /* empty */ }
-    public static class DevelopmentSettingsActivity extends Settings { /* empty */ }
-    public static class AccessibilitySettingsActivity extends Settings { /* empty */ }
-    public static class SecuritySettingsActivity extends Settings { /* empty */ }
-    public static class LocationSettingsActivity extends Settings { /* empty */ }
-    public static class PrivacySettingsActivity extends Settings { /* empty */ }
-    public static class RunningServicesActivity extends Settings { /* empty */ }
-    public static class ManageAccountsSettingsActivity extends Settings { /* empty */ }
-    public static class PowerUsageSummaryActivity extends Settings { /* empty */ }
-    public static class AccountSyncSettingsActivity extends Settings { /* empty */ }
-    public static class AccountSyncSettingsInAddAccountActivity extends Settings { /* empty */ }
-    public static class CryptKeeperSettingsActivity extends Settings { /* empty */ }
-    public static class DeviceAdminSettingsActivity extends Settings { /* empty */ }
-    public static class DataUsageSummaryActivity extends Settings { /* empty */ }
-    public static class AdvancedWifiSettingsActivity extends Settings { /* empty */ }
-    public static class TextToSpeechSettingsActivity extends Settings { /* empty */ }
-    public static class AndroidBeamSettingsActivity extends Settings { /* empty */ }
-    public static class WifiDisplaySettingsActivity extends Settings { /* empty */ }
-    public static class AnonymousStatsActivity extends Settings { /* empty */ }
-    public static class ApnSettingsActivity extends Settings { /* empty */ }
-    public static class ApnEditorActivity extends Settings { /* empty */ }
-    public static class ProfilesSettingsActivity extends Settings { /* empty */ }
-    public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
-    public static class DreamSettingsActivity extends Settings { /* empty */ }
-    public static class SystemSettingsActivity extends Settings { /* empty */ }
-    public static class NotificationStationActivity extends Settings { /* empty */ }
-    public static class UserSettingsActivity extends Settings { /* empty */ }
-    public static class NotificationAccessSettingsActivity extends Settings { /* empty */ }
-    public static class BlacklistSettingsActivity extends Settings { /* empty */ }
+    public static class BluetoothSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class WirelessSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class TetherSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class VpnSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class DateTimeSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class StorageSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class WifiSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class WifiP2pSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class InputMethodAndLanguageSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class KeyboardLayoutPickerActivity extends Settings { /* empty */
+    }
+
+    public static class InputMethodAndSubtypeEnablerActivity extends Settings { /* empty */
+    }
+
+    public static class SpellCheckersSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class LocalePickerActivity extends Settings { /* empty */
+    }
+
+    public static class UserDictionarySettingsActivity extends Settings { /* empty */
+    }
+
+    public static class SoundSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class DisplaySettingsActivity extends Settings { /* empty */
+    }
+
+    public static class DeviceInfoSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class ApplicationSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class ManageApplicationsActivity extends Settings { /* empty */
+    }
+
+    public static class AppOpsSummaryActivity extends Settings { /* empty */
+    }
+
+    public static class StorageUseActivity extends Settings { /* empty */
+    }
+
+    public static class DevelopmentSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class AccessibilitySettingsActivity extends Settings { /* empty */
+    }
+
+    public static class SecuritySettingsActivity extends Settings { /* empty */
+    }
+
+    public static class LocationSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class PrivacySettingsActivity extends Settings { /* empty */
+    }
+
+    public static class RunningServicesActivity extends Settings { /* empty */
+    }
+
+    public static class ManageAccountsSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class PowerUsageSummaryActivity extends Settings { /* empty */
+    }
+
+    public static class AccountSyncSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class AccountSyncSettingsInAddAccountActivity extends Settings { /* empty */
+    }
+
+    public static class CryptKeeperSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class DeviceAdminSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class DataUsageSummaryActivity extends Settings { /* empty */
+    }
+
+    public static class AdvancedWifiSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class TextToSpeechSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class AndroidBeamSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class WifiDisplaySettingsActivity extends Settings { /* empty */
+    }
+
+    public static class AnonymousStatsActivity extends Settings { /* empty */
+    }
+
+    public static class ApnSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class ApnEditorActivity extends Settings { /* empty */
+    }
+
+    public static class ProfilesSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class QuietHoursSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class DreamSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class SystemSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class NotificationStationActivity extends Settings { /* empty */
+    }
+
+    public static class UserSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class NotificationAccessSettingsActivity extends Settings { /* empty */
+    }
+
+    public static class BlacklistSettingsActivity extends Settings { /* empty */
+    }
 }

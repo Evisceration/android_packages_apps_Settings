@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Profiles -->
+    <PreferenceScreen
+        android:id="@+id/profiles_settings"
+        android:icon="@drawable/ic_settings_profiles"
+        android:title="@string/profiles_settings_title">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="profilesettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Location -->
+    <PreferenceScreen
+        android:icon="@drawable/ic_settings_location"
+        android:title="@string/location_settings_title"
+        android:id="@+id/location_settings">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="locationsettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Security -->
+    <PreferenceScreen
+        android:icon="@drawable/ic_settings_security"
+        android:title="@string/security_settings_title"
+        android:id="@+id/security_settings">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="securitysettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Language -->
+    <PreferenceScreen
+        android:id="@+id/language_settings"
+        android:icon="@drawable/ic_settings_language"
+        android:title="@string/language_settings">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="languagesettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Backup and reset -->
+    <PreferenceScreen
+        android:icon="@drawable/ic_settings_backup"
+        android:title="@string/privacy_settings"
+        android:id="@+id/privacy_settings">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="privacysettings" />
+        </intent>
+    </PreferenceScreen>
+</PreferenceScreen>

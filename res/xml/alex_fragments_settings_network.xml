@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Wifi -->
+    <PreferenceScreen
+        android:id="@+id/wifi_settings"
+        android:title="@string/wifi_settings_title"
+        android:icon="@drawable/ic_settings_wireless">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="wifisettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Bluetooth -->
+    <PreferenceScreen
+        android:id="@+id/bluetooth_settings"
+        android:title="@string/bluetooth_settings_title"
+        android:icon="@drawable/ic_settings_bluetooth2">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="bluetoothsettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Data Usage -->
+    <PreferenceScreen
+        android:id="@+id/data_usage_settings"
+        android:title="@string/data_usage_summary_title"
+        android:icon="@drawable/ic_settings_data_usage">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="datausagesettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Other wireless and network controls -->
+    <PreferenceScreen
+        android:id="@+id/wireless_settings"
+        android:title="@string/radio_controls_title"
+        android:breadCrumbTitle="@string/wireless_networks_settings_title"
+        android:icon="@drawable/empty_icon">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="wirelesssettings" />
+        </intent>
+    </PreferenceScreen>
+</PreferenceScreen>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Date & Time -->
+    <PreferenceScreen
+        android:id="@+id/date_time_settings"
+        android:icon="@drawable/ic_settings_date_time"
+        android:title="@string/date_and_time_settings_title">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="datetimesettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Accessibility feedback -->
+    <PreferenceScreen
+        android:id="@+id/accessibility_settings"
+        android:icon="@drawable/ic_settings_accessibility"
+        android:title="@string/accessibility_settings">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="accessibilitysettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Development -->
+    <PreferenceScreen
+        android:id="@+id/development_settings"
+        android:icon="@drawable/ic_settings_development"
+        android:title="@string/development_settings_title">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="developmentsettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- Superuser -->
+    <!--PreferenceScreen
+        android:id="@+id/superuser"
+        android:icon="@drawable/ic_action_permission"
+        android:title="@string/superuser">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.koushikdutta.superuser"
+            android:targetClass="com.koushikdutta.superuser.MainActivity"></intent>
+    </PreferenceScreen-->
+
+    <!-- Performance -->
+    <PreferenceScreen
+        android:id="@+id/performance_settings"
+        android:icon="@drawable/ic_settings_performance"
+        android:title="@string/performance_settings_title">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="performancesettings" />
+        </intent>
+    </PreferenceScreen>
+
+    <!-- About Device -->
+    <PreferenceScreen
+        android:id="@+id/about_settings"
+        android:icon="@drawable/ic_settings_about"
+        android:title="@string/about_settings">
+        <intent
+            android:action="com.android.settings.alex.fragments.SUBSETTINGSFRAGMENT"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.alex.fragments.SubSettingsFragment">
+            <extra
+                android:name="ID"
+                android:value="aboutsettings" />
+        </intent>
+    </PreferenceScreen>
+</PreferenceScreen>
