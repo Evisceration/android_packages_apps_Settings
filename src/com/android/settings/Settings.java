@@ -166,6 +166,7 @@ public class Settings extends PreferenceActivity
         if (android.provider.Settings.System.getInt(this.getContentResolver(),
                 android.provider.Settings.System.ALEX_EXTRA_USE_NEW_SETTINGS, 0) == 1) {
             startActivity(new Intent(Settings.this, TabbedSettings.class));
+            return;
         }
         mInLocalHeaderSwitch = false;
 
@@ -208,47 +209,54 @@ public class Settings extends PreferenceActivity
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        // Save the current fragment, if it is the same as originally launched
-        if (mCurrentHeader != null) {
-            outState.putParcelable(SAVE_KEY_CURRENT_HEADER, mCurrentHeader);
-        }
-        if (mParentHeader != null) {
-            outState.putParcelable(SAVE_KEY_PARENT_HEADER, mParentHeader);
+        if (!(android.provider.Settings.System.getInt(this.getContentResolver(),
+                android.provider.Settings.System.ALEX_EXTRA_USE_NEW_SETTINGS, 0) == 1)) {
+            // Save the current fragment, if it is the same as originally launched
+            if (mCurrentHeader != null) {
+                outState.putParcelable(SAVE_KEY_CURRENT_HEADER, mCurrentHeader);
+            }
+            if (mParentHeader != null) {
+                outState.putParcelable(SAVE_KEY_PARENT_HEADER, mParentHeader);
+            }
         }
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        if (!(android.provider.Settings.System.getInt(this.getContentResolver(),
+                android.provider.Settings.System.ALEX_EXTRA_USE_NEW_SETTINGS, 0) == 1)) {
+            mDevelopmentPreferencesListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+                @Override
+                public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                    invalidateHeaders();
+                }
+            };
+            mDevelopmentPreferences.registerOnSharedPreferenceChangeListener(
+                    mDevelopmentPreferencesListener);
 
-        mDevelopmentPreferencesListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
-            @Override
-            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                invalidateHeaders();
+            ListAdapter listAdapter = getListAdapter();
+            if (listAdapter instanceof HeaderAdapter) {
+                ((HeaderAdapter) listAdapter).resume();
             }
-        };
-        mDevelopmentPreferences.registerOnSharedPreferenceChangeListener(
-                mDevelopmentPreferencesListener);
-
-        ListAdapter listAdapter = getListAdapter();
-        if (listAdapter instanceof HeaderAdapter) {
-            ((HeaderAdapter) listAdapter).resume();
+            invalidateHeaders();
         }
-        invalidateHeaders();
     }
 
     @Override
     public void onPause() {
         super.onPause();
+        if (!(android.provider.Settings.System.getInt(this.getContentResolver(),
+                android.provider.Settings.System.ALEX_EXTRA_USE_NEW_SETTINGS, 0) == 1)) {
+            ListAdapter listAdapter = getListAdapter();
+            if (listAdapter instanceof HeaderAdapter) {
+                ((HeaderAdapter) listAdapter).pause();
+            }
 
-        ListAdapter listAdapter = getListAdapter();
-        if (listAdapter instanceof HeaderAdapter) {
-            ((HeaderAdapter) listAdapter).pause();
+            mDevelopmentPreferences.unregisterOnSharedPreferenceChangeListener(
+                    mDevelopmentPreferencesListener);
+            mDevelopmentPreferencesListener = null;
         }
-
-        mDevelopmentPreferences.unregisterOnSharedPreferenceChangeListener(
-                mDevelopmentPreferencesListener);
-        mDevelopmentPreferencesListener = null;
     }
 
     @Override
