@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2007 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2007 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -29,20 +28,28 @@
     <!-- Strings for Dialog deny button -->
     <string name="deny">Deny</string>
 
-    <!-- Device Info --> <skip />
+    <!-- Device Info -->
+    <skip />
     <!-- Device Info screen. Used for a status item's value when the proper value is not known -->
     <string name="device_info_default">Unknown</string>
     <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
     <plurals name="show_dev_countdown">
-        <item quantity="one">You are now <xliff:g id="step_count">%1$d</xliff:g> step away from enabling development settings.</item>
-        <item quantity="other">You are now <xliff:g id="step_count">%1$d</xliff:g> steps away from enabling development settings.</item>
+        <item quantity="one">You are now
+            <xliff:g id="step_count">%1$d</xliff:g>
+            step away from enabling development settings.
+        </item>
+        <item quantity="other">You are now
+            <xliff:g id="step_count">%1$d</xliff:g>
+            steps away from enabling development settings.
+        </item>
     </plurals>
     <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
     <string name="show_dev_on">You have enabled development settings!</string>
     <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
     <string name="show_dev_already">No need, you have already enabled development settings.</string>
 
-    <!-- Category headings in left-pane header menu --> <skip />
+    <!-- Category headings in left-pane header menu -->
+    <skip />
     <!-- Settings main menu category heading. Wireless and networks (Wi-Fi, Bluetooth, data usage...). [CHAR LIMIT=40] -->
     <string name="header_category_wireless_networks">WIRELESS &amp; NETWORKS</string>
     <!-- Settings main menu category heading. Device (Sound, display, battery, applications...). [CHAR LIMIT=40] -->
@@ -610,7 +617,8 @@
     <!-- mobile network settings screen, setting option summary text -->
     <string name="sum_carrier_select">Choose a network operator</string>
 
-    <!-- Date and time settings --><skip />
+    <!-- Date and time settings -->
+    <skip />
     <!-- Main Settings screen setting option name to go into the date and time settings-->
     <string name="date_and_time_settings_title">Date &amp; time</string>
     <!-- Title for Date & Time settings screen in SetupWizard [CHAR LIMIT=40] -->
@@ -654,11 +662,12 @@
          [CHAR LIMIT=20] -->
     <string name="time_picker_title">Time</string>
 
-    <!-- Security Settings --><skip />
+    <!-- Security Settings -->
+    <skip />
 
     <!-- Security settings screen when using face unlock, setting option name to start an activity that allows the user to improve accuracy by adding additional enrollment faces -->
     <string name="biometric_weak_improve_matching_title">Improve face matching</string>
-<!-- On the security settings screen when using face unlock.  This checkbox is used to toggle whether liveliness detection is required.  If it is checked the user must blink during unlock to prove it's not a photo  -->
+    <!-- On the security settings screen when using face unlock.  This checkbox is used to toggle whether liveliness detection is required.  If it is checked the user must blink during unlock to prove it's not a photo  -->
     <string name="biometric_weak_liveliness_title">Liveness check</string>
     <!-- On the security settings screen when using face unlock.  The summary of the liveliness checkbox -->
     <string name="biometric_weak_liveliness_summary" msgid="7980026533493781616">Require eye blink while unlocking</string>
@@ -802,16 +811,19 @@
     <!-- Image button description to switch input method -->
     <string name="crypt_keeper_switch_input_method">Switch input method</string>
 
-    <!-- Unlock Picker Settings --><skip />
+    <!-- Unlock Picker Settings -->
+    <skip />
 
-    <!-- Security Picker --><skip />
+    <!-- Security Picker -->
+    <skip />
     <!--  Title for security picker to choose the unlock method: None/Pattern/PIN/Password [CHAR LIMIT=22] -->
     <string name="lock_settings_picker_title">Choose screen lock</string>
 
     <!--  Title for security picker when choosing a facelock's backup unlock method: Pattern/PIN [CHAR LIMIT=22] -->
     <string name="backup_lock_settings_picker_title">Choose backup lock</string>
 
-    <!--  Main Security lock settings --><skip />
+    <!--  Main Security lock settings -->
+    <skip />
     <!--  Title for PreferenceScreen to launch picker for security method when there is none [CHAR LIMIT=22] -->
     <string name="unlock_set_unlock_launch_picker_title">Screen lock</string>
 
@@ -1272,7 +1284,8 @@
     <!-- Description of NFC in the 1st level settings screen. [CHAR LIMIT=NONE] -->
     <string name="nsd_quick_toggle_summary">Allow apps on other devices to discover apps on this device</string>
 
-    <!-- Wi-Fi Settings --> <skip />
+    <!-- Wi-Fi Settings -->
+    <skip />
     <!-- Used in the 1st-level settings screen to turn on Wi-Fi -->
     <string name="wifi_quick_toggle_title">Wi\u2011Fi</string>
     <!-- Used in the 1st-level settings screen as the turn-on summary -->
@@ -1360,7 +1373,8 @@
     <!-- Message informing that wifi is required during setup [CHAR LIMIT=NONE] -->
     <string name="wifi_required_info_text">To complete setup, your tablet needs access to Wi\u2011Fi. After setup, you can switch between mobile data and Wi\u2011Fi.</string>
 
-    <!-- Dialog for Access Points --> <skip />
+    <!-- Dialog for Access Points -->
+    <skip />
     <!-- Label to show/hide advanced options -->
     <string name="wifi_show_advanced">Show advanced options</string>
     <!-- Title for the WPS setup dialog [CHAR LIMIT=50] -->
@@ -1381,11 +1395,11 @@
     <string name="wifi_wps_failed_generic">WPS failed. Please try again in a few minutes.</string>
     <!-- Text displayed when WPS fails due to WEP [CHAR LIMIT=150] -->
     <string name="wifi_wps_failed_wep">The wireless router security setting (WEP) is not supported</string>
-     <!-- Text displayed when WPS fails to TKIP [CHAR LIMIT=150] -->
+    <!-- Text displayed when WPS fails to TKIP [CHAR LIMIT=150] -->
     <string name="wifi_wps_failed_tkip">The wireless router security setting (TKIP) is not supported</string>
-     <!-- Text displayed when WPS fails due to authentication issues [CHAR LIMIT=150] -->
+    <!-- Text displayed when WPS fails due to authentication issues [CHAR LIMIT=150] -->
     <string name="wifi_wps_failed_auth">Authentication failure. Please try again.</string>
-     <!-- Text displayed when WPS fails due to another session [CHAR LIMIT=150] -->
+    <!-- Text displayed when WPS fails due to another session [CHAR LIMIT=150] -->
     <string name="wifi_wps_failed_overlap">Another WPS session was detected. Please try again in a few minutes.</string>
     <!-- Label for the SSID of the network -->
     <string name="wifi_ssid">Network SSID</string>
@@ -1514,7 +1528,8 @@
     <!-- Text alerting that Wi-Fi couldn't connect (phone) [CHAR LIMIT=NONE] -->
     <string name="wifi_connect_failed_message" product="default">The phone was unable to connect to this Wi\u2011Fi network.</string>
 
-    <!-- Wi-Fi Advanced Settings --> <skip />
+    <!-- Wi-Fi Advanced Settings -->
+    <skip />
     <!-- Wi-Fi settings screen, advanced, settings section.  This is a header shown above advanced wifi settings. -->
     <string name="wifi_advanced_titlebar">Advanced Wi\u2011Fi</string>
     <!-- Wi-Fi settings screen, setting title for setting the band [CHAR LIMIT=50]-->
@@ -1694,7 +1709,7 @@
     <string name="config_list_label" translatable="false">Configured networks</string>
 
     <!-- Sound and alerts settings -->
-    <skip/>
+    <skip />
     <!-- Main Settings screen setting option name to go into the display settings screen -->
     <string name="display_settings_title">Display</string>
     <!-- Sound settings screen heading -->
@@ -1801,7 +1816,8 @@
     <!-- Main Settings screen, setting option summary to go into search settings -->
     <string name="search_settings_summary">Manage search settings and history</string>
 
-    <!-- Display settings --><skip/>
+    <!-- Display settings -->
+    <skip />
     <!-- Sound & display settings screen, section header for settings related to display -->
     <string name="display_settings">Display</string>
     <!-- Sound & display settings screen, accelerometer-based rotation check box label -->
@@ -1937,7 +1953,7 @@
     <!-- About phone screen, summary of the item to go into the phone status screen -->
     <string name="device_status_summary" product="default">Phone number, signal, etc.</string>
     <!-- Main settings screen item's title to go into the storage settings screen [CHAR LIMIT=25] -->
-    <string name="storage_settings" >Storage</string>
+    <string name="storage_settings">Storage</string>
     <!-- Storage settings screen title -->
     <string name="storage_settings_title">Storage settings</string>
     <!-- [CHAR LIMIT=100] Main settings screen item's summary for the SD card and storage settings -->
@@ -2379,7 +2395,8 @@
     <!-- [CHAR LIMIT=45] Section heading for location sources -->
     <string name="location_sources_heading">Location sources</string>
 
-    <!-- About --> <skip />
+    <!-- About -->
+    <skip />
     <!-- Main settings screen, setting title for the user to go into the About phone screen -->
     <string name="about_settings" product="tablet">About tablet</string>
     <!-- Main settings screen, setting title for the user to go into the About phone screen -->
@@ -2392,17 +2409,21 @@
     <string name="contributors_title">Contributors</string>
     <!-- About phone settings screen, setting option name to show regulatory information [CHAR LIMIT=25] -->
     <string name="regulatory_information">Regulatory information</string>
-    <!-- Note: this may be replaced by a more-specific title of the activity that will get launched --> <skip />
+    <!-- Note: this may be replaced by a more-specific title of the activity that will get launched -->
+    <skip />
     <!-- About phone settings screen, setting option name to see copyright-related info -->
     <string name="copyright_title">Copyright</string>
-    <!-- Note: this may be replaced by a more-specific title of the activity that will get launched --> <skip />
+    <!-- Note: this may be replaced by a more-specific title of the activity that will get launched -->
+    <skip />
     <!-- About phone settings screen, setting option name to see licensing info -->
     <string name="license_title">License</string>
-    <!-- Note: this may be replaced by a more-specific title of the activity that will get launched --> <skip />
+    <!-- Note: this may be replaced by a more-specific title of the activity that will get launched -->
+    <skip />
     <!-- About phone settings screen, setting option name to see terms and conditions -->
     <string name="terms_title">Terms and conditions</string>
 
-    <!-- Title for actual Settings license activity. --> <skip />
+    <!-- Title for actual Settings license activity. -->
+    <skip />
     <!-- About phone settings, Legal information setting option name and title of dialog box holding license info -->
     <string name="settings_license_activity_title">Open source licenses</string>
     <!-- About phone settings screen, Open source license dialog message when licenses cannot be loaded -->
@@ -2506,7 +2527,8 @@
     <!-- Displayed when user launches a widget configuration activity that was uninstalled -->
     <string name="activity_not_found">Application is not installed on your phone.</string>
 
-    <!-- Applications Settings --> <skip />
+    <!-- Applications Settings -->
+    <skip />
     <!-- Applications settings screen, setting option name for the user to go to the screen to manage installed applications  -->
     <string name="manageapplications_settings_title">Manage apps</string>
     <!-- Applications settings screen, setting option summary for the user to go to the screen to manage installed applications  -->
@@ -2771,7 +2793,8 @@
         If you turn off notifications for this app, you may miss important alerts and updates.
     </string>
 
-    <!-- App Ops Settings --> <skip />
+    <!-- App Ops Settings -->
+    <skip />
     <!-- [CHAR LIMIT=NONE] App ops settings title, on main settings screen. If clicked, the user is taken to a settings screen for app operations -->
     <string name="app_ops_settings">App ops</string>
     <!-- [CHAR LIMIT=NONE] Time label for an operation that is currently running. -->
@@ -2816,7 +2839,7 @@
     <!-- Descriptive text of a running process: singular process, plural service. -->
     <string name="running_processes_item_description_s_p"><xliff:g id="numprocess">%1$d</xliff:g>
         process and <xliff:g id="numservices">%2$d</xliff:g> services</string>
-     <!-- Descriptive text of a running process: plural process, singular service. -->
+    <!-- Descriptive text of a running process: plural process, singular service. -->
     <string name="running_processes_item_description_p_s"><xliff:g id="numprocess">%1$d</xliff:g>
         processes and <xliff:g id="numservices">%2$d</xliff:g> service</string>
     <!-- Descriptive text of a running process: plural process, plural service. -->
@@ -2867,7 +2890,8 @@
         features of your phone may stop working correctly until you power it off
         and then on again.</string>
 
-    <!-- Language Settings --> <skip />
+    <!-- Language Settings -->
+    <skip />
     <!-- Title of setting on main settings screen.  This item will take the user to the screen to tweak settings realted to locale and text -->
     <string name="language_settings">Language &amp; input</string>
     <!-- Title of Language and keyboard settings screen -->
@@ -2929,7 +2953,8 @@
     <!-- On Language & input settings screen, setting summary.  Setting to redirect vibration to input devices. [CHAR LIMIT=100] -->
     <string name="vibrate_input_devices_summary">Redirect vibrator to game controller when connected.</string>
 
-    <!-- Keyboard Layout Preference Dialog --> <skip />
+    <!-- Keyboard Layout Preference Dialog -->
+    <skip />
     <!-- Title for the keyboard layout preference dialog. [CHAR LIMIT=35] -->
     <string name="keyboard_layout_dialog_title">Choose keyboard layout</string>
     <!-- Button to configure keyboard layouts.  [CHAR LIMIT=35] -->
@@ -2939,11 +2964,13 @@
     <!-- Label of the default keyboard layout.  [CHAR LIMIT=35] -->
     <string name="keyboard_layout_default_label">Default</string>
 
-    <!-- Keyboard Layout Picker --> <skip />
+    <!-- Keyboard Layout Picker -->
+    <skip />
     <!-- Title for the keyboard layout picker activity. [CHAR LIMIT=35] -->
     <string name="keyboard_layout_picker_title">Keyboard layouts</string>
 
-    <!-- User dictionary settings --><skip />
+    <!-- User dictionary settings -->
+    <skip />
     <!-- User dictionary settings, The titlebar text of the User dictionary settings screen. -->
     <string name="user_dict_settings_titlebar">User dictionary</string>
     <!-- User dictionary settings, The title of the list item to go into the User dictionary settings screen when there is only one user dictionary. [CHAR LIMIT=35] -->
@@ -3409,7 +3436,8 @@
     <!-- Label for mediaserver process -->
     <string name="process_mediaserver_label">Mediaserver</string>
 
-    <!-- Voice input/output settings --><skip />
+    <!-- Voice input/output settings -->
+    <skip />
     <!-- Title of setting on main settings screen. This item will take the user to the screen to tweak settings related to speech functionality -->
     <string name="voice_input_output_settings">Voice input &amp; output</string>
     <!-- Main voice input/output settings screen title -->
@@ -3428,7 +3456,8 @@
          Would say something like, e.g., "Settings for 'Google'". -->
     <string name="recognizer_settings_summary">Settings for \'<xliff:g id="recognizer_name">%s</xliff:g>\'</string>
 
-    <!-- Text-To-Speech (TTS) settings --><skip />
+    <!-- Text-To-Speech (TTS) settings -->
+    <skip />
     <!-- Name of the TTS package as listed by the package manager. -->
     <string name="tts_settings">Text-to-speech settings</string>
     <!-- TTS option item name in the main settings screen -->
@@ -3619,7 +3648,8 @@
     <!-- Sound settings screen, setting option summary text -->
     <string name="emergency_tone_summary">Set behavior when an emergency call is placed</string>
 
-    <!-- Backup and reset Settings screen --><skip />
+    <!-- Backup and reset Settings screen -->
+    <skip />
     <!-- Backup and reset settings menu title -->
     <string name="privacy_settings">Backup &amp; reset</string>
     <!-- Privacy settings activity title -->
@@ -3660,7 +3690,8 @@
     <!-- Dialog title for confirmation to erase backup data from server -->
     <string name="backup_erase_dialog_message">Stop backing up your Wi\u2011Fi passwords, bookmarks, other settings, and app data, plus erase all copies on Google servers?</string>
 
-    <!-- Device admin settings screen --><skip />
+    <!-- Device admin settings screen -->
+    <skip />
     <!-- Device admin settings activity title -->
     <string name="device_admin_settings_title">Device administration settings</string>
     <!-- Label for screen showing the active device policy -->
@@ -3831,7 +3862,8 @@
     <!-- Title for a checkbox that enables data synchronization in the account and sync screen [CHAR LIMIT=35] -->
     <string name="sync_automatically">Auto-sync app data</string>
 
-    <!-- Sync status messages on Accounts & Synchronization settings --><skip />
+    <!-- Sync status messages on Accounts & Synchronization settings -->
+    <skip />
     <!-- Sync status shown when sync is enabled [CHAR LIMIT=25] -->
     <string name="sync_enabled">Sync is ON</string>
     <!-- Sync status shown when sync is disabled [CHAR LIMIT=25] -->
@@ -4337,7 +4369,7 @@
     <string name="selinux_status_enforcing">Enforcing</string>
 
     <!-- User settings -->
-    <skip/>
+    <skip />
 
     <!-- User settings screen title [CHAR LIMIT=25] -->
     <string name="user_settings_title">Users</string>
@@ -4447,7 +4479,8 @@
     <string name="app_halo_label_black">Blacklist HALO notifications</string>
     <string name="app_halo_label_white">Whitelist HALO notifications</string>
 
-    <!--  Help URLs for some screens. Not specified here. Specified in product overlays --><skip/>
+    <!--  Help URLs for some screens. Not specified here. Specified in product overlays -->
+    <skip />
     <!-- Help menu label [CHAR LIMIT=20] -->
     <string name="help_label">Help</string>
     <!-- Help URL, WiFi [DO NOT TRANSLATE] -->
@@ -4521,7 +4554,7 @@
     <!-- Restrictions title for allowing location sharing [CHAR LIMIT=35] -->
     <string name="restriction_location_enable_title">Location access</string>
     <!-- Restrictions summary for allowing location sharing [CHAR LIMIT=100] -->
-    <string name="restriction_location_enable_summary" >Let apps use your location information</string>
+    <string name="restriction_location_enable_summary">Let apps use your location information</string>
 
     <!-- Wizard back button label [CHAR LIMIT=25] -->
     <string name="wizard_back">Back</string>
@@ -4584,6 +4617,13 @@
     <string name="alex_graphics_category_title">Graphics</string>
     <!-- HALO Category -->
     <string name="alex_halo_category_title">HALO)))</string>
+    <!-- Active Display Category -->
+    <string name="alex_activedisplay_category_title">Active Display</string>
+    <!-- Extra Category -->
+    <string name="alex_extra_category_title">Extras</string>
+    <string name="alex_extra_settings_title">@string/alex_extra_category_title</string>
+    <string name="alex_extra_use_new_settings_title">Use Tabbed Settings</string>
+    <string name="alex_extra_use_new_settings_summary">Replace the default list appearance with a tabbed one.</string>
     <!-- Wallpaper Category -->
     <string name="alex_wallpaper_category_title">Wallpaper</string>
     <string name="alex_wallpaper_use_dither_title">Use Dithering</string>

@@ -41,8 +41,10 @@ public class MainMenu extends Activity {
     private List<SettingsPreferenceFragment> getFragments() {
         List<SettingsPreferenceFragment> fList = new ArrayList<SettingsPreferenceFragment>();
 
+        fList.add(new ActiveDisplaySettings());
         fList.add(new Halo());
         fList.add(new Graphics());
+        fList.add(new ExtraSettings());
 
         return fList;
     }
@@ -50,8 +52,10 @@ public class MainMenu extends Activity {
     private List<String> getTitles() {
         List<String> titleList = new ArrayList<String>();
 
+        titleList.add(getString(R.string.alex_activedisplay_category_title));
         titleList.add(getString(R.string.alex_halo_category_title));
         titleList.add(getString(R.string.alex_graphics_category_title));
+        titleList.add(getString(R.string.alex_extra_category_title));
 
         return titleList;
     }

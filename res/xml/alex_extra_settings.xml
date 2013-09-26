@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/alex_extra_settings_title">
+
+    <PreferenceCategory android:title="@string/alex_extra_category_title" />
+
+    <CheckBoxPreference
+        android:key="alex_extra_use_new_settings"
+        android:title="@string/alex_extra_use_new_settings_title"
+        android:summary="@string/alex_extra_use_new_settings_summary"
+        android:defaultValue="false" />
+
+</PreferenceScreen>

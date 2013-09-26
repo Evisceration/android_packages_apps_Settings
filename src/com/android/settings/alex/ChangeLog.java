@@ -16,29 +16,20 @@
 
 package com.android.settings.alex;
 
-import com.android.settings.R;
-
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Config;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Toast;
 import android.app.Fragment;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.view.ViewGroup;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import com.android.settings.R;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import com.android.internal.app.AlertActivity;
-import com.android.internal.app.AlertController;
 
 public class ChangeLog extends Fragment {
 
@@ -46,7 +37,7 @@ public class ChangeLog extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         InputStreamReader inputReader = null;
         StringBuilder data = null;
         try {
@@ -65,6 +56,7 @@ public class ChangeLog extends Fragment {
                     inputReader.close();
                 }
             } catch (IOException e) {
+                Log.e("ChangeLog", "Error: " + e.getMessage());
             }
         }
 

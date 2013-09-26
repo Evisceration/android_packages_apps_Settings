@@ -26,12 +26,14 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
-/*import com.android.settings.alex.SeekBarPreference;*/
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import static android.hardware.Sensor.TYPE_LIGHT;
 import static android.hardware.Sensor.TYPE_PROXIMITY;
+
+/*import com.android.settings.alex.SeekBarPreference;*/
 
 public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
@@ -120,7 +122,7 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
         } else if (preference == mEnabledPref) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.ENABLE_ACTIVE_DISPLAY,
-                    ((Boolean) newValue).booleanValue() ? 1 : 0);
+                    (Boolean) newValue ? 1 : 0);
             return true;
         } /*else if (preference == mBrightnessLevel) {
             int brightness = ((Integer)newValue).intValue();

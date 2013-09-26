@@ -20,7 +20,6 @@ import android.app.ActivityManager;
 import android.app.INotificationManager;
 import android.content.Context;
 import android.os.Bundle;
-import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -34,12 +33,12 @@ import com.android.settings.SettingsPreferenceFragment;
 public class Halo extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
-    private static final String KEY_HALO_ACTIVE		= "halo_active";
-    private static final String KEY_HALO_STATE		= "halo_state";
-    private static final String KEY_HALO_HIDE		= "halo_hide";
-    private static final String KEY_HALO_REVERSED	= "halo_reversed";
-    private static final String KEY_HALO_SIZE		= "halo_size";
-    private static final String KEY_HALO_PAUSE		= "halo_pause";
+    private static final String KEY_HALO_ACTIVE = "halo_active";
+    private static final String KEY_HALO_STATE = "halo_state";
+    private static final String KEY_HALO_HIDE = "halo_hide";
+    private static final String KEY_HALO_REVERSED = "halo_reversed";
+    private static final String KEY_HALO_SIZE = "halo_size";
+    private static final String KEY_HALO_PAUSE = "halo_pause";
 
     private ListPreference mHaloState;
     private ListPreference mHaloSize;
@@ -88,7 +87,7 @@ public class Halo extends SettingsPreferenceFragment
             float haloSize = Settings.System.getFloat(mContext.getContentResolver(),
                     Settings.System.HALO_SIZE, 1.0f);
             mHaloSize.setValue(String.valueOf(haloSize));
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             // So what
         }
         mHaloSize.setOnPreferenceChangeListener(this);
@@ -98,7 +97,7 @@ public class Halo extends SettingsPreferenceFragment
         try {
             return mNotificationManager.isHaloPolicyBlack();
         } catch (android.os.RemoteException ex) {
-                // System dead
+            // System dead
         }
         return true;
     }
@@ -118,7 +117,7 @@ public class Halo extends SettingsPreferenceFragment
                     Settings.System.HALO_PAUSE, mHaloPause.isChecked()
                     ? 1 : 0);
         } else if (preference == mHaloActive) {
-	    Settings.System.putInt(mContext.getContentResolver(),
+            Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.HALO_ACTIVE, mHaloActive.isChecked()
                     ? 1 : 0);
         }

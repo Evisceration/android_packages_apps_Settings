@@ -22,6 +22,7 @@ import android.util.AttributeSet;
 import android.widget.SeekBar;
 
 import com.android.settings.R;
+
 import org.cyanogenmod.hardware.VibratorHW;
 
 public class VibratorIntensity extends HWValueSliderPreference {
@@ -30,26 +31,32 @@ public class VibratorIntensity extends HWValueSliderPreference {
         public int getMinValue() {
             return VibratorHW.getMinIntensity();
         }
+
         @Override
         public int getMaxValue() {
             return VibratorHW.getMaxIntensity();
         }
+
         @Override
         public int getCurrentValue() {
             return VibratorHW.getCurIntensity();
         }
+
         @Override
         public int getDefaultValue() {
             return VibratorHW.getDefaultIntensity();
         }
+
         @Override
         public int getWarningThreshold() {
             return VibratorHW.getWarningThreshold();
         }
+
         @Override
         public boolean setValue(int value) {
             return VibratorHW.setIntensity(value);
         }
+
         @Override
         public String getPreferenceName() {
             return "vibration_intensity";

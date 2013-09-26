@@ -1,13 +1,9 @@
 package com.android.settings.alex;
 
-import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Bundle;
-import android.os.RemoteException;
-import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
-import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
@@ -17,11 +13,11 @@ import com.android.settings.SettingsPreferenceFragment;
 
 public class Graphics extends SettingsPreferenceFragment {
 
-    private static final String KEY_ALEX_WALLPAPER_USE_DITHER		= "alex_wallpaper_use_dither";
-    private static final String KEY_ALEX_WALLPAPER_PIXELFORMAT_565	= "alex_wallpaper_pixelformat_565";
+    private static final String KEY_ALEX_WALLPAPER_USE_DITHER = "alex_wallpaper_use_dither";
+    private static final String KEY_ALEX_WALLPAPER_PIXELFORMAT_565 = "alex_wallpaper_pixelformat_565";
 
-    private static final String USE_16BPP_ALPHA_PREF 			= "pref_use_16bpp_alpha";
-    private static final String USE_16BPP_ALPHA_PROP 			= "persist.sys.use_16bpp_alpha";
+    private static final String USE_16BPP_ALPHA_PREF = "pref_use_16bpp_alpha";
+    private static final String USE_16BPP_ALPHA_PROP = "persist.sys.use_16bpp_alpha";
 
     private CheckBoxPreference mWallpaperDither;
     private CheckBoxPreference mWallpaperPixelformat565;
