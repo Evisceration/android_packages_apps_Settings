@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012-2013 The CyanogenMod Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2012-2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -580,6 +579,10 @@
     <string name="cmupdate_settings_title">CyanogenMod updates</string>
     <string name="cmupdate_settings_summary">Check for, view or install available updates</string>
 
+    <!-- VELOX Updater -->
+    <string name="velox_updates_settings_title">Velox updates</string>
+    <string name="velox_updates_settings_summary">Check for, view or install available updates</string>
+
     <!-- Advanced, Device specific (DeviceParts) settings  -->
     <string name="advanced_settings_title">Advanced</string>
 
@@ -1014,8 +1017,14 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="backlight_timeout_title">Illumination timeout</string>
     <string name="backlight_timeout_unlimited">Don\'t turn off</string>
     <plurals name="backlight_timeout_time">
-        <item quantity="one"><xliff:g id="seconds">%d</xliff:g> second</item>
-        <item quantity="other"><xliff:g id="seconds">%d</xliff:g> seconds</item>
+        <item quantity="one">
+            <xliff:g id="seconds">%d</xliff:g>
+            second
+        </item>
+        <item quantity="other">
+            <xliff:g id="seconds">%d</xliff:g>
+            seconds
+        </item>
     </plurals>
     <string name="backlight_summary_disabled">Disabled</string>
     <string name="backlight_summary_enabled_with_timeout">Enabled for <xliff:g id="timeout">%s</xliff:g></string>

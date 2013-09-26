@@ -1,53 +1,66 @@
 package com.android.settings.alex;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.os.Bundle;
+import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 
-import com.android.settings.alex.Halo;
-import com.android.settings.alex.Graphics;
 import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainMenu extends Activity {
 
-    ListView listView;
+    CustomPageAdapter pageAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alex_main_menu);
 
-        List valueList = new ArrayList<String>();
+        List<SettingsPreferenceFragment> fragments = getFragments();
 
-        valueList.add("Halo");
-        valueList.add("Graphics");
+        pageAdapter = new CustomPageAdapter(getFragmentManager(), fragments);
 
-        listView=(ListView)findViewById(R.id.lvAlexMenu);
-        ListAdapter adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, valueList);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(listView.getAdapter().getItem(i).toString().equals("Halo")) {
-                    getFragmentManager().beginTransaction().replace(android.R.id.content, new Halo()).commit();
-                } else if (listView.getAdapter().getItem(i).toString().equals("Graphics")) {
-                    getFragmentManager().beginTransaction().replace(android.R.id.content, new Graphics()).commit();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Couldn't find associated Activity!", Toast.LENGTH_SHORT).show();
-                }
-                listView.setVisibility(View.INVISIBLE);
-            }
-        });
+        ViewPager pager = (ViewPager) findViewById(R.id.alex_custom_settings_viewpager);
+
+        pager.setAdapter(pageAdapter);
+
+    }
+
+    private List<SettingsPreferenceFragment> getFragments() {
+        List<SettingsPreferenceFragment> fList = new ArrayList<SettingsPreferenceFragment>();
+
+        fList.add(new Halo());
+        fList.add(new Graphics());
+
+        return fList;
+    }
+
+    class CustomPageAdapter extends FragmentPagerAdapter {
+
+        private List<SettingsPreferenceFragment> fragments;
+
+
+        public CustomPageAdapter(FragmentManager fm, List<SettingsPreferenceFragment> fragments) {
+            super(fm);
+            this.fragments = fragments;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return this.fragments.get(position);
+        }
+
+
+        @Override
+        public int getCount() {
+            return this.fragments.size();
+        }
 
     }
 
