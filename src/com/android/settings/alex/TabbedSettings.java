@@ -31,6 +31,9 @@ public class TabbedSettings extends Activity {
         pageAdapter = new CustomPageAdapter(getFragmentManager(), fragments);
 
         ViewPager pager = (ViewPager) findViewById(R.id.alex_custom_settings_viewpager);
+
+        pager.setOffscreenPageLimit(7);
+
         pager.setAdapter(pageAdapter);
 
         mPagerTabStrip = (PagerTabStrip) findViewById(R.id.alex_custom_settings_pagerTabStrip);
@@ -38,6 +41,17 @@ public class TabbedSettings extends Activity {
         mPagerTabStrip.setTabIndicatorColor(getResources().getColor(R.color.alex_blue));
         mPagerTabStrip.setDrawFullUnderline(true);
 
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     private List<SettingsPreferenceFragment> getFragments() {

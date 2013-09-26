@@ -166,7 +166,6 @@ public class Settings extends PreferenceActivity
         if (android.provider.Settings.System.getInt(this.getContentResolver(),
                 android.provider.Settings.System.ALEX_EXTRA_USE_NEW_SETTINGS, 0) == 1) {
             startActivity(new Intent(Settings.this, TabbedSettings.class));
-            return;
         }
         mInLocalHeaderSwitch = false;
 
@@ -242,7 +241,6 @@ public class Settings extends PreferenceActivity
             invalidateHeaders();
         } else {
             startActivity(new Intent(Settings.this, TabbedSettings.class));
-            return;
         }
     }
 

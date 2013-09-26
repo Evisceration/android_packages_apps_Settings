@@ -2274,10 +2274,7 @@
             android:name=".alex.MainMenu"
             android:taskAffinity="com.android.settings"
             android:parentActivityName="Settings"></activity>
-        <activity
-            android:name=".alex.TabbedSettings"
-            android:taskAffinity="com.android.settings"
-            android:parentActivityName="Settings"></activity>
+        <activity android:name=".alex.TabbedSettings" />
         <activity
             android:name=".alex.fragments.SubSettingsFragment"
             android:taskAffinity="com.android.settings"
