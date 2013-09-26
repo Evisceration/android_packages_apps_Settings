@@ -61,6 +61,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
     private static final String KEY_DEVICE_MEMORY = "device_memory";
     private static final String KEY_VELOX_UPDATES = "velox_updates";
     private static final String KEY_CM_UPDATES = "cm_updates";
+    private static final String KEY_VELOX_UPDATES = "velox_updates";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
     long[] mHits = new long[3];
@@ -209,7 +210,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
             mHits[mHits.length - 1] = SystemClock.uptimeMillis();
             if (mHits[0] >= (SystemClock.uptimeMillis() - 500)) {
 
-             if (mDevHitToast != null) {
+                if (mDevHitToast != null) {
                     mDevHitToast.cancel();
                 }
                 mDevHitToast = Toast.makeText(getActivity(), "Disabled as it may crash your phone!",

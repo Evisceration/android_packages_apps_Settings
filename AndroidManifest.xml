@@ -95,7 +95,7 @@
         android:label="@string/settings_label"
         android:icon="@mipmap/ic_launcher_settings"
         android:taskAffinity=""
-        android:theme="@style/Theme_Dark"
+        android:theme="@android:style/Theme.Holo"
         android:hardwareAccelerated="true"
         android:requiredForAllUsers="true"
         android:supportsRtl="true">
@@ -1092,12 +1092,13 @@
                 android:resource="@id/application_settings" />
         </activity>
         -->
-        
-        <activity android:name="Settings$LocationSettingsActivity"
-                android:label="@string/location_settings_title"
-                android:configChanges="orientation|keyboardHidden|screenSize"
-                android:taskAffinity=""
-                android:excludeFromRecents="true">
+
+        <activity
+            android:name="Settings$LocationSettingsActivity"
+            android:label="@string/location_settings_title"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:taskAffinity=""
+            android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.settings.LOCATION_SOURCE_SETTINGS" />
