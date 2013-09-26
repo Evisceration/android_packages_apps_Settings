@@ -56,6 +56,7 @@ import com.android.settings.AccessibilitySettings.ToggleAccessibilityServicePref
 import com.android.settings.accounts.AccountSyncSettings;
 import com.android.settings.accounts.AuthenticatorHelper;
 import com.android.settings.accounts.ManageAccountsSettings;
+import com.android.settings.alex.TabbedSettings;
 import com.android.settings.blacklist.BlacklistSettings;
 import com.android.settings.bluetooth.BluetoothEnabler;
 import com.android.settings.bluetooth.BluetoothSettings;
@@ -161,6 +162,11 @@ public class Settings extends PreferenceActivity
         getMetaData();
         mInLocalHeaderSwitch = true;
         super.onCreate(savedInstanceState);
+
+        if (android.provider.Settings.System.getInt(this.getContentResolver(),
+                android.provider.Settings.System.ALEX_EXTRA_USE_NEW_SETTINGS, 0) == 1) {
+            startActivity(new Intent(Settings.this, TabbedSettings.class));
+        }
         mInLocalHeaderSwitch = false;
 
         if (!onIsHidingHeaders() && onIsMultiPane()) {

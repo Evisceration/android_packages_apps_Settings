@@ -286,14 +286,4 @@
             android:targetClass="com.brewcrewfoo.performance.activities.MainActivity" />
     </header>
 
-    <!-- Tabbed Settings -->
-    <header
-        android:icon="@drawable/empty_icon"
-        android:title="@string/alex_custom_title">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.settings"
-            android:targetClass="com.android.settings.alex.TabbedSettings" />
-    </header>
-
 </preference-headers>
