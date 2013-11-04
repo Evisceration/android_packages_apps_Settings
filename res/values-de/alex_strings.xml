@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Settings ALEX -->
+    <string name="header_category_alex_romextras">ROM Extras</string>
+    <string name="alex_custom_title">Velox Control</string>
+
+    <string name="velox_version">Velox Version</string>
+
+    <!-- Random PIN lock view -->
+    <string name="lock_numpad_random_title">Ändere die Reihenfolge der PIN Pad Nummern</string>
+    <string name="lock_numpad_random_dialog_title">Zufälliges PIN Pad</string>
+    <string name="lock_numpad_random_off">Deaktiviert</string>
+    <string name="lock_numpad_random_always">Immer</string>
+    <string name="lock_numpad_random_on_request">Auf Anfrage</string>
+
+    <!-- Halo -->
+    <string name="halo">Halo</string>
+    <!-- Label for are-notifications-enabled checkbox in app details [CHAR LIMIT=20] -->
+    <string name="app_halo_label_black">Halo Benachrichtigungen blockieren</string>
+    <string name="app_halo_label_white">Halo Benachrichtungen zulassen</string>
+
+</resources>

@@ -202,6 +202,9 @@ public class Settings extends PreferenceActivity
             getActionBar().setDisplayHomeAsUpEnabled(false);
             getActionBar().setHomeButtonEnabled(false);
         }
+
+        getListView().setFastScrollEnabled(true);
+
     }
 
     @Override
@@ -437,9 +440,6 @@ public class Settings extends PreferenceActivity
     }
 
     private void updateHeaderList(List<Header> target) {
-        final boolean showDev = mDevelopmentPreferences.getBoolean(
-                DevelopmentSettings.PREF_SHOW,
-                android.os.Build.TYPE.equals("eng"));
         int i = 0;
 
         final UserManager um = (UserManager) getSystemService(Context.USER_SERVICE);
@@ -501,11 +501,6 @@ public class Settings extends PreferenceActivity
                         || Utils.isMonkeyRunning()) {
                     target.remove(i);
                 }
-            } else if (id == R.id.development_settings
-                    || id == R.id.performance_settings) {
-                if (!showDev) {
-                    target.remove(i);
-                }
             } else if (id == R.id.superuser) {
                 if (!DevelopmentSettings.isRootForAppsEnabled()) {
                     target.remove(i);
@@ -528,6 +523,26 @@ public class Settings extends PreferenceActivity
             } else if (id == R.id.global_roaming_settings) {
                 if (!SystemProperties.getBoolean(GLOBAL_PROP, false)) {
                     target.remove(header);
+                }
+            } else if (id == R.id.alex_romextras_section) {
+                final PackageManager pm = getPackageManager();
+
+                Intent launcherPrefsIntent = new Intent(Intent.ACTION_MAIN);
+                launcherPrefsIntent.setPackage("net.openfiretechnologies.veloxcontrol");
+
+                ResolveInfo launcherPrefs = pm.resolveActivity(launcherPrefsIntent, 0);
+                if (launcherPrefs == null) {
+                    target.remove(i + 1);
+                }
+            } else if (id == R.id.performance_settings) {
+                final PackageManager pm = getPackageManager();
+
+                Intent launcherPrefsIntent = new Intent(Intent.ACTION_MAIN);
+                launcherPrefsIntent.setPackage("com.brewcrewfoo.performance");
+
+                ResolveInfo launcherPrefs = pm.resolveActivity(launcherPrefsIntent, 0);
+                if (launcherPrefs == null) {
+                    target.remove(i);
                 }
             }
 
@@ -668,10 +683,6 @@ public class Settings extends PreferenceActivity
         static int getHeaderType(Header header) {
             if (header.fragment == null && header.intent == null) {
                 return HEADER_TYPE_CATEGORY;
-            } else if (header.id == R.id.wifi_settings
-                    || header.id == R.id.bluetooth_settings
-                    || header.id == R.id.profiles_settings) {
-                return HEADER_TYPE_SWITCH;
             } else {
                 return HEADER_TYPE_NORMAL;
             }
@@ -930,4 +941,5 @@ public class Settings extends PreferenceActivity
     public static class UserSettingsActivity extends Settings { /* empty */ }
     public static class NotificationAccessSettingsActivity extends Settings { /* empty */ }
     public static class BlacklistSettingsActivity extends Settings { /* empty */ }
+    public static class PerformanceSettingsActivity extends Settings { /* empty */ }
 }

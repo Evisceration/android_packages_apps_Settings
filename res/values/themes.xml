@@ -19,4 +19,8 @@
     <style name="Theme.WifiDialog" parent="@*android:style/Theme.Holo.Dialog.Alert">
         <item name="android:windowSoftInputMode">adjustResize</item>
     </style>
+
+    <style name="Theme_Dark" parent="android:Theme.Holo">
+        <item name="android:listSeparatorTextViewStyle">@style/alex_pref_cat</item>
+    </style>
 </resources>
