@@ -1,0 +1,5 @@
+[gerrit]
+host=gerrit.openfire-technologies.net
+port=29418
+project=android_packages_apps_Settings.git
+defaultbranch=velox44
